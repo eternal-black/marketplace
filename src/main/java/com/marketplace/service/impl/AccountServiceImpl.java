@@ -21,11 +21,13 @@ public class AccountServiceImpl implements AccountService {
     }
 
     public void updateAccount(Account account) {
-
+        accountMapper.updateAccount(account.getLogin(), account.getPassword(), account.getName(), account.getId());
+        sqlSession.commit();
     }
 
     public void deleteAccount(Account account) {
-
+        accountMapper.deleteAccount(account.getId());
+        sqlSession.commit();
     }
 
 }

@@ -22,4 +22,18 @@ public interface AccountMapper {
     void addAccount(@Param("login")String login,
                     @Param("password")String password,
                     @Param("name")String name);
+
+    @Update("UPDATE account SET " +
+            "login = #{login}," +
+            "password=#{password}, " +
+            "name=#{name} " +
+            "WHERE id=#{id}")
+    void updateAccount(@Param("login")String login,
+                       @Param("password")String password,
+                       @Param("name")String name,
+                       @Param("id") int id);
+
+    @Delete("DELETE FROM account " +
+            "WHERE id=#{id}")
+    void deleteAccount(@Param("id")int id);
 }
