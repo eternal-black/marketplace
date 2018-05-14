@@ -9,6 +9,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <junit.version>4.12</junit.version>
+        <mysql.version>6.0.5</mysql.version>
+        <mybatis.version>3.4.1</mybatis.version>
+
         <com.sun.faces.jsf-api>2.2.1</com.sun.faces.jsf-api>
         <com.sun.faces.jsf-impl>2.2.11</com.sun.faces.jsf-impl>
 
@@ -25,6 +29,22 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-api</artifactId>
