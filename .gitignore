@@ -10,3 +10,10 @@
 
 # virtual machine crash logs
 hs_err_pid*
+
+.idea/*
+
+marketplace.iml
+
+out/*
+target/*
