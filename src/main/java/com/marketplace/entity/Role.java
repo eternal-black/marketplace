@@ -1,9 +1,13 @@
 package com.marketplace.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Role {
 
     private int id;
     private String role;
+    Set<User> users = new HashSet<User>(0);
 
     public Role() {
     }
@@ -27,6 +31,14 @@ public class Role {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     @Override

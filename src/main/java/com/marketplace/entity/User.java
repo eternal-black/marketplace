@@ -1,6 +1,10 @@
 package com.marketplace.entity;
 
-public class User {
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+public class User implements Serializable{
 
     private int id;
     private int rating;
@@ -11,11 +15,14 @@ public class User {
     private String photo;
     private Role userRole;
     private Contact userContact;
+    private Set<Wallet> wallets = new HashSet<Wallet>(0);
 
     public User() {
     }
 
-    public User(int rating, String login, String password, String firstName, String lastName, String photo, Role userRole, Contact userContact) {
+    public User(int id, int rating, String login, String password, String firstName, String lastName,
+                String photo, Role userRole, Contact userContact, Set<Wallet> walletSet) {
+        this.id = id;
         this.rating = rating;
         this.login = login;
         this.password = password;
@@ -24,9 +31,17 @@ public class User {
         this.photo = photo;
         this.userRole = userRole;
         this.userContact = userContact;
+        this.wallets = walletSet;
     }
 
-    @javax.persistence.Id
+    public Set<Wallet> getWallets() {
+        return wallets;
+    }
+
+    public void setWallets(Set<Wallet> wallets) {
+        this.wallets = wallets;
+    }
+
     public int getId() {
         return id;
     }

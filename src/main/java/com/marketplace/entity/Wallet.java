@@ -1,6 +1,8 @@
 package com.marketplace.entity;
 
-public class Wallet {
+import java.io.Serializable;
+
+public class Wallet implements Serializable {
 
     private int id;
     private User user;

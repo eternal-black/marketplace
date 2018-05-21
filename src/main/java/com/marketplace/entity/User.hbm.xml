@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.marketplace.entity">
+    <class name="com.marketplace.entity.User" table="user">
+        <id name="id" column="ID">
+            <generator class="identity"/>
+        </id>
+        <property name="firstName" column="FIRSTNAME"/>
+        <property name="lastName" column="LASTNAME"/>
+        <property name="rating" column="RATING"/>
+        <property name="login" column="LOGIN"/>
+        <property name="password" column="PASSWORD"/>
+        <property name="photo" column="PHOTO"/>
+
+        <many-to-one name="userRole" column="ID_ROLE" class="com.marketplace.entity.Role" fetch="select"/>
+        <many-to-one name="userContact" column="ID_CONTACT" class="com.marketplace.entity.Contact" fetch="select"/>
+
+        <set name="wallets" table="wallet" fetch="select">
+            <key>
+                <column name="ID_USER"/>
+            </key>
+            <one-to-many class="com.marketplace.entity.Wallet"/>
+        </set>
+
+    </class>
+</hibernate-mapping>
