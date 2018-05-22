@@ -3,5 +3,21 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
-  
+
+    <navigation-rule>
+        <from-view-id>/authorization.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-action>#{userBean.authorization}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/profile.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-action>#{userBean.authorization}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/authorization.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
 </faces-config>
