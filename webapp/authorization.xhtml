@@ -7,20 +7,27 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <f:view>
-        <h:form>
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Login"/>
-                <h:inputText id="login" value="#{userBean.login}" required="true"/>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        </h:head>
+        <h:body>
 
-                <h:outputLabel value="Password"/>
-                <h:inputSecret id="password" value="#{userBean.password}" required="true"/>
-            </h:panelGrid>
-            <br/>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{msg['login.label']}"/>
+                    <h:inputText id="login" value="#{userBean.login}" required="true"/>
 
-            <h:panelGrid columns="2">
-                <h:commandButton value="Login" action="#{userBean.authorization}"/>
-            </h:panelGrid>
-        </h:form>
+                    <h:outputLabel value="#{msg['password.label']}"/>
+                    <h:inputSecret id="password" value="#{userBean.password}" required="true"/>
+                </h:panelGrid>
+                <br/>
+
+                <h:panelGrid columns="2">
+                    <h:commandButton value="#{msg['login.button']}" action="#{userBean.authorization}"/>
+                </h:panelGrid>
+            </h:form>
+
+        </h:body>
     </f:view>
 
 </html>
