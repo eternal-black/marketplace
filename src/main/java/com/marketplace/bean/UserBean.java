@@ -1,5 +1,6 @@
 package com.marketplace.bean;
 
+import com.marketplace.entity.User;
 import com.marketplace.util.DBUtil;
 
 import javax.faces.bean.ManagedBean;
@@ -15,6 +16,22 @@ public class UserBean {
 
     private String login;
     private String password;
+
+    public String registration() {
+        System.out.println("registration");
+        try {
+            User user = new User();
+            user.setLogin(this.login);
+            user.setPassword(this.password);
+            DBUtil.addUser(user);
+            System.out.println("login - " + DBUtil.getAddingUser());
+            sessionBean.setUser(DBUtil.getAddingUser());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
+    }
 
     public String authorization() {
         System.out.println("auth");

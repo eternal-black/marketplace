@@ -18,4 +18,21 @@ public class DBUtil {
         }
         return null;
     }
+
+    public static void addUser(User user) throws Exception {
+        try {
+            userDAO.add(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static User getAddingUser(){
+        try {
+            return userDAO.getAddingUser();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

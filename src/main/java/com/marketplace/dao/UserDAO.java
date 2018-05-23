@@ -10,4 +10,6 @@ public interface UserDAO {
     void add(User account) throws SQLException;
     void update(User account) throws SQLException;
     void delete(User account) throws SQLException;
+
+    User getAddingUser();
 }
