@@ -16,6 +16,7 @@ public class User implements Serializable{
     private Role userRole;
     private Contact userContact;
     private Set<Wallet> wallets = new HashSet<Wallet>(0);
+    private Set<Product> products =new HashSet<Product>(0);
 
     public User() {
     }
@@ -32,6 +33,15 @@ public class User implements Serializable{
         this.userRole = userRole;
         this.userContact = userContact;
         this.wallets = walletSet;
+    }
+
+    /*add mapping*/
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
     public Set<Wallet> getWallets() {

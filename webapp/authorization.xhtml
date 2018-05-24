@@ -13,7 +13,7 @@
         <h:body>
 
             <h:form>
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="2" style="margin: auto">
                     <h:outputLabel value="#{msg['login.label']}"/>
                     <h:inputText id="login" value="#{userBean.login}" required="true"/>
 
@@ -22,7 +22,7 @@
                 </h:panelGrid>
                 <br/>
 
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="2" style="margin: auto">
                     <h:commandButton value="#{msg['login.button']}" action="#{userBean.authorization}"/>
                 </h:panelGrid>
             </h:form>

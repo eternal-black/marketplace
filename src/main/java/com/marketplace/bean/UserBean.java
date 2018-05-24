@@ -1,5 +1,7 @@
 package com.marketplace.bean;
 
+import com.marketplace.entity.Contact;
+import com.marketplace.entity.Role;
 import com.marketplace.entity.User;
 import com.marketplace.util.DBUtil;
 
@@ -16,6 +18,12 @@ public class UserBean {
 
     private String login;
     private String password;
+    private String firstName;
+    private String lastName;
+    private String photo;
+    private int rating;
+    private Role role;
+    private Contact contact;
 
     public String registration() {
         System.out.println("registration");
@@ -66,5 +74,53 @@ public class UserBean {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 }

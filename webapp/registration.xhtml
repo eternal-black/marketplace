@@ -8,17 +8,28 @@
 <f:view>
 
         <h:form>
-            <h:panelGrid columns="2">
+            <h:panelGrid columns="2" style="margin: auto;">
                 <h:outputLabel value="Login"/>
                 <h:inputText id="login" value="#{userBean.login}" required="true"/>
 
                 <h:outputLabel value="Password"/>
                 <h:inputSecret id="password" value="#{userBean.password}" required="true"/>
 
+                <h:outputLabel value="First name"/>
+                <h:inputText id="firstName" value="#{userBean.firstName}" required="true"/>
+
+                <h:outputLabel value="Last name"/>
+                <h:inputText id="lastName" value="#{userBean.lastName}" required="true"/>
+
+                <h:outputLabel value="Email"/>
+                <h:inputText id="email" value="#{userBean.contact.email}" required="true"/>
+
+                <h:outputLabel value="Phone"/>
+                <h:inputText id="phone" value="#{userBean.contact.phone}" required="true"/>
             </h:panelGrid>
             <br/>
 
-            <h:panelGrid columns="2">
+            <h:panelGrid columns="2" style="margin: auto;">
                 <h:commandButton value="Registration" action="#{userBean.registration}"/>
             </h:panelGrid>
         </h:form>
