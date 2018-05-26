@@ -23,15 +23,30 @@ public class UserBean {
     private int rating;
     private Role role;
 
+    public String deleteAccount(){
+        try {
+            DBUtil.delete(sessionBean.getUser());
+            sessionBean.setUser(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
+    }
+
     public String registration() {
         System.out.println("registration");
         try {
             User user = new User();
             user.setLogin(this.login);
             user.setPassword(this.password);
+            user.setFirstName(this.firstName);
+            user.setLastName(this.lastName);
+            user.setRole(Role.user);
+            user.setRating(0);
             DBUtil.addUser(user);
-            System.out.println("login - " + DBUtil.getAddingUser());
-            sessionBean.setUser(DBUtil.getAddingUser());
+
+            sessionBean.setUser(user);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";

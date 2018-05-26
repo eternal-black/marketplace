@@ -27,12 +27,11 @@ public class DBUtil {
         }
     }
 
-    public static User getAddingUser(){
+    public static void delete(User user) throws Exception {
         try {
-            return userDAO.getAddingUser();
-        } catch (Exception e){
+            userDAO.delete(user);
+        }catch (SQLException e){
             e.printStackTrace();
         }
-        return null;
     }
 }
