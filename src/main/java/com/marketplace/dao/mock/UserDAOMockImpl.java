@@ -1,20 +1,18 @@
 package com.marketplace.dao.mock;
 
-import com.marketplace.bean.UserBean;
 import com.marketplace.dao.UserDAO;
 import com.marketplace.entity.User;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
+import java.util.*;
 
 public class UserDAOMockImpl implements UserDAO{
+    public User getByLoginPassword(String login, String password) throws SQLException {
+        return null;
+    }
 
+    public List<User> getUsers() throws SQLException {
+        return null;
+    }
 
     public User get(String login, String password) throws SQLException {
         User user = new User();
@@ -24,7 +22,6 @@ public class UserDAOMockImpl implements UserDAO{
         user.setLastName("ln");
         return user;
     }
-
 
     public void add(User user) throws SQLException {
 
@@ -43,15 +40,9 @@ public class UserDAOMockImpl implements UserDAO{
 
     public Map<Integer, User> userSet = new HashMap<Integer, User>();
 
-
-
-
-
     public void update(User account) throws SQLException {
 
     }
 
-    public void delete(User account) throws SQLException {
-
-    }
+    public void delete(User account) throws SQLException {    }
 }

@@ -1,28 +1,24 @@
 package com.marketplace.entity;
 
+import com.marketplace.entity.enums.Role;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 public class User implements Serializable{
 
-    private int id;
-    private int rating;
+    private Integer id;
+    private Integer rating;
     private String login;
     private String password;
     private String firstName;
     private String lastName;
     private String photo;
-    private Role userRole;
-    private Contact userContact;
-    private Set<Wallet> wallets = new HashSet<Wallet>(0);
-    private Set<Product> products =new HashSet<Product>(0);
+    private Role role;
 
     public User() {
     }
 
-    public User(int id, int rating, String login, String password, String firstName, String lastName,
-                String photo, Role userRole, Contact userContact, Set<Wallet> walletSet) {
+    public User(int id, int rating, String login, String password, String firstName,
+                String lastName, String photo) {
         this.id = id;
         this.rating = rating;
         this.login = login;
@@ -30,42 +26,42 @@ public class User implements Serializable{
         this.firstName = firstName;
         this.lastName = lastName;
         this.photo = photo;
-        this.userRole = userRole;
-        this.userContact = userContact;
-        this.wallets = walletSet;
     }
 
-    /*add mapping*/
-    public Set<Product> getProducts() {
-        return products;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", rating=" + rating +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", photo='" + photo + '\'' +
+                '}';
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public Role getRole() {
+        return role;
+    }
+    public void setRole(Role role) {
+        this.role = role;
     }
 
-    public Set<Wallet> getWallets() {
-        return wallets;
-    }
-
-    public void setWallets(Set<Wallet> wallets) {
-        this.wallets = wallets;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getRating() {
-        return rating;
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public Integer getRating() {
+        return rating;
     }
 
     public String getLogin() {
@@ -106,36 +102,5 @@ public class User implements Serializable{
 
     public void setPhoto(String photo) {
         this.photo = photo;
-    }
-
-    public Role getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(Role userRole) {
-        this.userRole = userRole;
-    }
-
-    public Contact getUserContact() {
-        return userContact;
-    }
-
-    public void setUserContact(Contact userContact) {
-        this.userContact = userContact;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", rating=" + rating +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", photo='" + photo + '\'' +
-                ", userRole=" + userRole +
-                ", userContact=" + userContact +
-                '}';
     }
 }

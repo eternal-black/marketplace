@@ -1,8 +1,7 @@
 package com.marketplace.bean;
 
-import com.marketplace.entity.Contact;
-import com.marketplace.entity.Role;
 import com.marketplace.entity.User;
+import com.marketplace.entity.enums.Role;
 import com.marketplace.util.DBUtil;
 
 import javax.faces.bean.ManagedBean;
@@ -23,7 +22,6 @@ public class UserBean {
     private String photo;
     private int rating;
     private Role role;
-    private Contact contact;
 
     public String registration() {
         System.out.println("registration");
@@ -42,7 +40,7 @@ public class UserBean {
     }
 
     public String authorization() {
-        System.out.println("auth");
+        System.out.println("auth" + login);
         try {
             sessionBean.setUser(DBUtil.getUser(login, password));
         } catch (Exception e) {
@@ -116,11 +114,4 @@ public class UserBean {
         this.role = role;
     }
 
-    public Contact getContact() {
-        return contact;
-    }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
 }
