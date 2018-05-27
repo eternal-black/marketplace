@@ -2,6 +2,7 @@ package com.marketplace.bean;
 
 import com.marketplace.entity.User;
 import com.marketplace.entity.enums.Role;
+import com.marketplace.entity.enums.UserStatus;
 import com.marketplace.util.DBUtil;
 
 import javax.annotation.PostConstruct;
@@ -18,11 +19,7 @@ public class UserBean {
 
     private String login;
     private String password;
-    private String firstName;
-    private String lastName;
-    private String photo;
-    private int rating;
-    private Role role;
+
 
     public String updateAccount(){
         try {
@@ -31,7 +28,6 @@ public class UserBean {
             e.printStackTrace();
             return "fail";
         }
-
         return "success";
     }
 
@@ -50,12 +46,14 @@ public class UserBean {
         System.out.println("registration");
         try {
             User user = new User();
-            user.setLogin(this.login);
-            user.setPassword(this.password);
-            user.setFirstName(this.firstName);
-            user.setLastName(this.lastName);
-            user.setRole(Role.user);
+            user.setLogin(sessionBean.getUser().getLogin());
+            user.setPassword(sessionBean.getUser().getPassword());
+            user.setFirstName(sessionBean.getUser().getFirstName());
+            user.setLastName(sessionBean.getUser().getLastName());
+            user.setRole(Role.USER);
+            user.setStatus(UserStatus.ACTIVE);
             user.setRating(0);
+            user.setCash(0);
             DBUtil.addUser(user);
 
             sessionBean.setUser(user);
@@ -63,7 +61,7 @@ public class UserBean {
             e.printStackTrace();
             return "fail";
         }
-        login = password = firstName = lastName = null;
+        login = password = null;
         return "success";
     }
 
@@ -100,46 +98,6 @@ public class UserBean {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
 }

@@ -2,8 +2,8 @@ package com.marketplace.entity.enums;
 
 public enum Role {
 
-    admin,
-    user;
+    ADMIN,
+    USER;
 
     Role() {
     }

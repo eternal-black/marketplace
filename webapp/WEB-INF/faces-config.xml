@@ -63,18 +63,30 @@
     </navigation-rule>
 
     <navigation-rule>
-        <from-view-id>/profile.xhtml</from-view-id>
+        <from-view-id>/settings.xhtml</from-view-id>
 
         <navigation-case>
             <from-action>#{userBean.updateAccount}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/profile.xhtml</to-view-id>
+            <to-view-id>/settings.xhtml</to-view-id>
         </navigation-case>
 
         <navigation-case>
             <from-action>#{userBean.updateAccount}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/profile.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-action>#{userBean.deleteAccount}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/profile.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-action>#{userBean.deleteAccount}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/authorization.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 

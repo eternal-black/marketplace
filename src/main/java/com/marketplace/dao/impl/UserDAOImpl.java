@@ -1,7 +1,5 @@
 package com.marketplace.dao.impl;
 
-import com.marketplace.bean.SessionBean;
-import com.marketplace.bean.UserBean;
 import com.marketplace.dao.UserDAO;
 import com.marketplace.entity.User;
 import com.marketplace.util.HibernateUtil;
@@ -9,8 +7,6 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
-
-import javax.faces.bean.ManagedProperty;
 import java.sql.SQLException;
 import java.util.List;
 

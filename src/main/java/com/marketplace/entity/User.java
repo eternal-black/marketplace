@@ -1,6 +1,8 @@
 package com.marketplace.entity;
 
 import com.marketplace.entity.enums.Role;
+import com.marketplace.entity.enums.UserStatus;
+
 import java.io.Serializable;
 
 public class User implements Serializable{
@@ -13,6 +15,8 @@ public class User implements Serializable{
     private String lastName;
     private String photo;
     private Role role;
+    private Integer cash;
+    private UserStatus status;
 
     public User() {
     }
@@ -51,7 +55,6 @@ public class User implements Serializable{
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -59,7 +62,6 @@ public class User implements Serializable{
     public void setRating(Integer rating) {
         this.rating = rating;
     }
-
     public Integer getRating() {
         return rating;
     }
@@ -67,7 +69,6 @@ public class User implements Serializable{
     public String getLogin() {
         return login;
     }
-
     public void setLogin(String login) {
         this.login = login;
     }
@@ -75,7 +76,6 @@ public class User implements Serializable{
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -83,7 +83,6 @@ public class User implements Serializable{
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -91,7 +90,6 @@ public class User implements Serializable{
     public String getLastName() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -99,8 +97,21 @@ public class User implements Serializable{
     public String getPhoto() {
         return photo;
     }
-
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public Integer getCash() {
+        return cash;
+    }
+    public void setCash(Integer cash) {
+        this.cash = cash;
+    }
+
+    public UserStatus getStatus() {
+        return status;
+    }
+    public void setStatus(UserStatus status) {
+        this.status = status;
     }
 }

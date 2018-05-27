@@ -22,6 +22,14 @@
         <property name="lastName" column="LASTNAME"/>
         <property name="photo" column="PHOTO"/>
         <property name="rating" column="RATING"/>
+        <property name="cash" column="cash"/>
+
+        <property name="status" column="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.marketplace.entity.enums.UserStatus</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
 
 
     </class>
