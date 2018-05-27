@@ -16,11 +16,6 @@ import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
 
-    @ManagedProperty(value = "#{sessionBean}")
-    private SessionBean sessionBean;
-    @ManagedProperty(value = "#{userBean}")
-    private UserBean userBean;
-
     public User getByLoginPassword(String login, String password) throws SQLException {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List users;
@@ -83,12 +78,7 @@ public class UserDAOImpl implements UserDAO {
 
         try {
             session.beginTransaction();
-            User updateUser = session.get(User.class, user.getId());
-            System.out.println(userBean.getLogin() + "-----------------------login");
-            if (userBean.getLogin() != null) updateUser.setLogin(userBean.getLogin());
-            if (userBean.getPassword() != null) updateUser.setPassword(userBean.getPassword());
-            if (userBean.getFirstName() != null) updateUser.setFirstName(userBean.getFirstName());
-            if (userBean.getLastName() != null) updateUser.setLastName(userBean.getLastName());
+            session.update(user);
             session.getTransaction().commit();
         }catch (Exception e){
             session.getTransaction().rollback();
@@ -111,13 +101,5 @@ public class UserDAOImpl implements UserDAO {
         }finally {
             session.close();
         }
-    }
-
-    public UserBean getUserBean() {
-        return userBean;
-    }
-
-    public void setUserBean(UserBean userBean) {
-        this.userBean = userBean;
     }
 }

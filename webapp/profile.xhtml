@@ -8,25 +8,22 @@
 
     <f:view>
         <h:form>
-            <h:panelGrid columns="3" style="margin: auto">
+            <h:panelGrid columns="2" style="margin: auto">
                 <h:outputLabel value="Login"/>
-                <h:outputLabel value="#{sessionBean.user.login}"/>
-                <h:inputText value="#{userBean.login}"/>
+                <h:inputText value="#{sessionBean.user.login}"/>
 
                 <h:outputLabel value="Password"/>
-                <h:outputLabel value="#{sessionBean.user.password}"/>
-                <h:inputText value="#{userBean.password}"/>
+                <h:inputText value="#{sessionBean.user.password}"/>
 
                 <h:outputLabel value="First name"/>
-                <h:outputLabel value="#{sessionBean.user.firstName}"/>
-                <h:inputText value="#{userBean.firstName}"/>
+                <h:inputText value="#{sessionBean.user.firstName}"/>
 
                 <h:outputLabel value="Last name"/>
-                <h:outputLabel value="#{sessionBean.user.lastName}"/>
-                <h:inputText value="#{userBean.lastName}"/>
+                <h:inputText value="#{sessionBean.user.lastName}"/>
             </h:panelGrid>
 
             <h:commandButton value="delete" action="#{userBean.deleteAccount}"/>
+            <h:commandButton value="update" action="#{userBean.updateAccount}"/>
         </h:form>
     </f:view>
 

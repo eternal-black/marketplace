@@ -11,6 +11,7 @@ public class SessionBean {
 
     private User user = new User();
 
+
     public User getUser() {
         return user;
     }

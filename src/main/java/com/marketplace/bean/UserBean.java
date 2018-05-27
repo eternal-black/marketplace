@@ -4,6 +4,7 @@ import com.marketplace.entity.User;
 import com.marketplace.entity.enums.Role;
 import com.marketplace.util.DBUtil;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -22,6 +23,17 @@ public class UserBean {
     private String photo;
     private int rating;
     private Role role;
+
+    public String updateAccount(){
+        try {
+            DBUtil.updateUser(sessionBean.getUser());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+
+        return "success";
+    }
 
     public String deleteAccount(){
         try {
@@ -51,6 +63,7 @@ public class UserBean {
             e.printStackTrace();
             return "fail";
         }
+        login = password = firstName = lastName = null;
         return "success";
     }
 

@@ -29,4 +29,8 @@ public class DBUtil {
             e.printStackTrace();
         }
     }
+
+    public static void updateUser(User user) throws Exception {
+        userDAO.update(user);
+    }
 }
