@@ -147,4 +147,32 @@
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>/order.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-action>#{addressBean.addAddress}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/order.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-action>#{addressBean.addAddress}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/address.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-action>#{addressBean.addressById}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/order.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-action>#{addressBean.addressById}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/address.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
 </faces-config>

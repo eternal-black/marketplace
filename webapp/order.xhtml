@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Order"/>
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Coutnry"/>
+            <h:inputText value="#{addressBean.address.country}"/>
+
+            <h:outputLabel value="City"/>
+            <h:inputText value="#{addressBean.address.city}"/>
+
+            <h:outputLabel value="Street"/>
+            <h:inputText value="#{addressBean.address.street}"/>
+
+            <h:outputLabel value="Home"/>
+            <h:inputText value="#{addressBean.address.home}"/>
+
+            <h:outputLabel value="Apartment"/>
+            <h:inputText value="#{addressBean.address.apartment}"/>
+        </h:panelGrid>
+
+        <h:panelGrid columns="1">
+            <h:commandButton value="Add address" action="#{addressBean.addAddress}"/>
+        </h:panelGrid>
+
+        <h:inputText value="#{addressBean.address.id}"/>
+        <h:commandButton value="search" action="#{addressBean.addressById}"/>
+    </h:form>
+
+</f:view>
+</html>

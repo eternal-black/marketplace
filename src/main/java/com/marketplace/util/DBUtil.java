@@ -1,9 +1,12 @@
 package com.marketplace.util;
 
+import com.marketplace.dao.AddressDAO;
 import com.marketplace.dao.ProductDAO;
 import com.marketplace.dao.UserDAO;
+import com.marketplace.dao.impl.AddressDAOImpl;
 import com.marketplace.dao.impl.ProductDAOImpl;
 import com.marketplace.dao.impl.UserDAOImpl;
+import com.marketplace.entity.Address;
 import com.marketplace.entity.Product;
 import com.marketplace.entity.User;
 
@@ -12,6 +15,7 @@ import java.sql.SQLException;
 public class DBUtil {
 
     private static UserDAO userDAO = new UserDAOImpl();
+    private static AddressDAO addressDAO = new AddressDAOImpl();
     private static ProductDAO productDAO = new ProductDAOImpl();
 
     public static void addProductToOrder(Product product) {
@@ -72,5 +76,22 @@ public class DBUtil {
 
     public static void updateUser(User user) throws Exception {
         userDAO.update(user);
+    }
+
+    public static void addAddress(Address address){
+        try {
+            addressDAO.addAddress(address);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static Address getAddressById(int id) throws Exception {
+        try {
+            return addressDAO.getAddress(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }
