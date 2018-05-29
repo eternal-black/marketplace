@@ -19,6 +19,7 @@
 
         <mapping resource="User.hbm.xml"/>
         <mapping resource="Product.hbm.xml"/>
+        <mapping resource="Address.hbm.xml"/>
 
     </session-factory>
 
