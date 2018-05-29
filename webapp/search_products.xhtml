@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </h:head>
+    <h:body>
+        <h:form>
+
+            <h:outputLabel value="#{msg['categories.label']}"/>
+            <br/>
+            <br/>
+
+            <ui:repeat var="category" value="#{searchProductsBean.getCategories()}">
+                <h:commandLink value="#{category}"/>
+                <br/>
+            </ui:repeat>
+            <br/>
+
+            <h:panelGrid columns="2" style="border-style: solid;
+                                            border-width: 1px;
+                                            border-color: black;">
+                <h:outputLabel value="#{msg['searchName.label']}"/>
+                <h:inputText value="#{searchProductsBean.name}"/>
+
+                <h:outputLabel value="#{msg['costFrom.label']}"/>
+                <h:inputText value="#{searchProductsBean.costFrom}"/>
+                <h:outputLabel value="#{msg['costTo.label']}"/>
+                <h:inputText value="#{searchProductsBean.costTo}"/>
+
+                <h:outputLabel value="#{msg['discountFrom.label']}"/>
+                <h:inputText value="#{searchProductsBean.discountFrom}"/>
+
+                <h:outputLabel value="#{msg['ratingFrom.label']}"/>
+                <h:inputText value="#{searchProductsBean.ratingFrom}"/>
+
+                <h:commandButton value="#{msg['search.button']}" action="#{searchProductsBean.searchProductsByCriteria}"/>
+            </h:panelGrid>
+            <br/>
+
+            <ui:repeat var="product" value="#{searchProductsBean.products}">
+                <h:panelGrid columns="2" style="border-style: solid;
+                                                border-width: 1px;
+                                                border-color: black;">
+                    <h:graphicImage library="images" name="product.png"/>
+
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="#{msg['seller.label']}"/>
+                        <h:outputLabel value="Pirat Jack Roberts"/>
+
+                        <h:outputLabel value="#{msg['name.label']}"/>
+                        <h:outputLabel value="#{product.name}"/>
+                        <h:outputLabel value="#{msg['description.label']}"/>
+                        <h:outputLabel value="#{product.description}"/>
+                        <h:outputLabel value="#{msg['cost.label']}"/>
+                        <h:outputLabel value="#{product.cost}"/>
+                        <h:outputLabel value="#{msg['discount.label']}"/>
+                        <h:outputLabel value="#{product.discount}"/>
+                        <h:outputLabel value="#{msg['rating.label']}"/>
+                        <h:outputLabel value="#{product.rating}"/>
+                    </h:panelGrid>
+
+                    <h:commandButton value="#{msg['addToOrder.button']}" action="#{searchProductsBean.addToOrder}"/>
+                </h:panelGrid>
+                <br/>
+            </ui:repeat>
+
+        </h:form>
+    </h:body>
+</f:view>
+</html>
