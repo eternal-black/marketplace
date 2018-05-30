@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <f:view>
     <h:head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
@@ -26,24 +27,24 @@
                                             border-width: 1px;
                                             border-color: black;">
                 <h:outputLabel value="#{msg['searchName.label']}"/>
-                <h:inputText value="#{searchProductsBean.name}"/>
+                <h:inputText value="#{searchProductsBean.searchCriteria.name}"/>
 
                 <h:outputLabel value="#{msg['costFrom.label']}"/>
-                <h:inputText value="#{searchProductsBean.costFrom}"/>
+                <h:inputText value="#{searchProductsBean.searchCriteria.costFrom}"/>
                 <h:outputLabel value="#{msg['costTo.label']}"/>
-                <h:inputText value="#{searchProductsBean.costTo}"/>
+                <h:inputText value="#{searchProductsBean.searchCriteria.costTo}"/>
 
                 <h:outputLabel value="#{msg['discountFrom.label']}"/>
-                <h:inputText value="#{searchProductsBean.discountFrom}"/>
+                <h:inputText value="#{searchProductsBean.searchCriteria.discountFrom}"/>
 
                 <h:outputLabel value="#{msg['ratingFrom.label']}"/>
-                <h:inputText value="#{searchProductsBean.ratingFrom}"/>
+                <h:inputText value="#{searchProductsBean.searchCriteria.ratingFrom}"/>
 
                 <h:commandButton value="#{msg['search.button']}" action="#{searchProductsBean.searchProductsByCriteria}"/>
             </h:panelGrid>
             <br/>
 
-            <ui:repeat var="product" value="#{searchProductsBean.products}">
+            <p:dataGrid var="prod" value="#{searchProductsBean.products}" columns="3" layout="grid">
                 <h:panelGrid columns="2" style="border-style: solid;
                                                 border-width: 1px;
                                                 border-color: black;">
@@ -54,21 +55,23 @@
                         <h:outputLabel value="Pirat Jack Roberts"/>
 
                         <h:outputLabel value="#{msg['name.label']}"/>
-                        <h:outputLabel value="#{product.name}"/>
+                        <h:outputLabel value="#{prod.name}"/>
                         <h:outputLabel value="#{msg['description.label']}"/>
-                        <h:outputLabel value="#{product.description}"/>
+                        <h:outputLabel value="#{prod.description}"/>
                         <h:outputLabel value="#{msg['cost.label']}"/>
-                        <h:outputLabel value="#{product.cost}"/>
+                        <h:outputLabel value="#{prod.cost}"/>
                         <h:outputLabel value="#{msg['discount.label']}"/>
-                        <h:outputLabel value="#{product.discount}"/>
+                        <h:outputLabel value="#{prod.discount}"/>
                         <h:outputLabel value="#{msg['rating.label']}"/>
-                        <h:outputLabel value="#{product.rating}"/>
+                        <h:outputLabel value="#{prod.rating}"/>
                     </h:panelGrid>
 
                     <h:commandButton value="#{msg['addToOrder.button']}" action="#{searchProductsBean.addToOrder}"/>
+                    <h:commandButton value="#{msg['removeFromOrder.button']}" action="#{searchProductsBean.removeFromOrder}"/>
+                    <h:commandButton value="#{msg['view.button']}"/>
                 </h:panelGrid>
-                <br/>
-            </ui:repeat>
+
+            </p:dataGrid>
 
         </h:form>
     </h:body>

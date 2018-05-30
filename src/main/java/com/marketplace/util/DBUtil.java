@@ -4,10 +4,7 @@ import com.marketplace.dao.AddressDAO;
 import com.marketplace.dao.ProductDAO;
 import com.marketplace.dao.SearchProductsDAO;
 import com.marketplace.dao.UserDAO;
-import com.marketplace.dao.impl.AddressDAOImpl;
-import com.marketplace.dao.impl.ProductDAOImpl;
-import com.marketplace.dao.impl.SearchProductsDAOMockImpl;
-import com.marketplace.dao.impl.UserDAOImpl;
+import com.marketplace.dao.impl.*;
 import com.marketplace.entity.Address;
 import com.marketplace.entity.Product;
 import com.marketplace.entity.User;
@@ -20,11 +17,20 @@ public class DBUtil {
     private static UserDAO userDAO = new UserDAOImpl();
     private static AddressDAO addressDAO = new AddressDAOImpl();
     private static ProductDAO productDAO = new ProductDAOImpl();
-    private static SearchProductsDAO searchProductsDAO = new SearchProductsDAOMockImpl();
+    private static SearchProductsDAO searchProductsDAO = new SearchProductsDAOImpl();
 
-    public static List<Product> getProducts() {
+    public static List<String> getProductCategories() {
         try {
-            return searchProductsDAO.getProducts();
+            return searchProductsDAO.getProductCategories();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static List<Product> getProducts(SearchCriteria criteria) {
+        try {
+            return searchProductsDAO.getProducts(criteria);
         } catch (SQLException e) {
             e.printStackTrace();
         }

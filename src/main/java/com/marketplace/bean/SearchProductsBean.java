@@ -2,6 +2,7 @@ package com.marketplace.bean;
 
 import com.marketplace.entity.Product;
 import com.marketplace.util.DBUtil;
+import com.marketplace.util.SearchCriteria;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -12,26 +13,11 @@ import java.util.List;
 @SessionScoped
 public class SearchProductsBean {
 
-    private String name;
-    private int costFrom;
-    private int costTo;
-    private int discountFrom;
-    private int ratingFrom;
-
-    private List<Product> products = DBUtil.getProducts();
+    private SearchCriteria searchCriteria = new SearchCriteria();
+    private List<Product> products = DBUtil.getProducts(searchCriteria);
 
     public List<String> getCategories(){
-        return Arrays.asList("Music","Drugs","Guns","Whores");
-    }
-
-    public String searchByCategory(){
-        try {
-            products = DBUtil.getProducts();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "fail";
-        }
-        return "success";
+        return DBUtil.getProductCategories();
     }
 
     public String addToOrder(){
@@ -44,9 +30,9 @@ public class SearchProductsBean {
         return "success";
     }
 
-    public String searchProductsByCriteria(){
+    public String removeFromOrder(){
         try {
-            products = DBUtil.getProducts();
+            DBUtil.addProductToOrder(products.get(0));
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -54,6 +40,23 @@ public class SearchProductsBean {
         return "success";
     }
 
+    public String searchProductsByCriteria(){
+        try {
+            products = DBUtil.getProducts(searchCriteria);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
+    }
+
+    public SearchCriteria getSearchCriteria() {
+        return searchCriteria;
+    }
+
+    public void setSearchCriteria(SearchCriteria searchCriteria) {
+        this.searchCriteria = searchCriteria;
+    }
 
     public List<Product> getProducts() {
         return products;
@@ -61,45 +64,5 @@ public class SearchProductsBean {
 
     public void setProducts(List<Product> products) {
         this.products = products;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getCostFrom() {
-        return costFrom;
-    }
-
-    public void setCostFrom(int costFrom) {
-        this.costFrom = costFrom;
-    }
-
-    public int getCostTo() {
-        return costTo;
-    }
-
-    public void setCostTo(int costTo) {
-        this.costTo = costTo;
-    }
-
-    public int getDiscountFrom() {
-        return discountFrom;
-    }
-
-    public void setDiscountFrom(int discountFrom) {
-        this.discountFrom = discountFrom;
-    }
-
-    public int getRatingFrom() {
-        return ratingFrom;
-    }
-
-    public void setRatingFrom(int ratingFrom) {
-        this.ratingFrom = ratingFrom;
     }
 }
