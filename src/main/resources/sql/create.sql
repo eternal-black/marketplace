@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS `marketplace`;
-CREATE DATABASE IF NOT EXISTS `marketplace`;
+CREATE DATABASE IF NOT EXISTS `marketplace` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `marketplace`;
 
 DROP TABLE IF EXISTS `address`;
@@ -40,34 +40,31 @@ CREATE TABLE IF NOT EXISTS `user` (
   `photo` varchar(45) DEFAULT NULL,
   `cash` int(11) NOT NULL DEFAULT '0',
   `rating` int(11) NOT NULL DEFAULT '0',
-  `role` enum('admin','user') NOT NULL DEFAULT 'user',
-  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `role` enum('ADMIN','USER') NOT NULL DEFAULT 'USER',
+  `status` enum('ACTIVE','INACTIVE') NOT NULL DEFAULT 'ACTIVE',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `company_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
   `name` varchar(50) NOT NULL,
   `description` varchar(50) NOT NULL,
   `cost` int(11) unsigned NOT NULL,
   `discount` int(11) unsigned NOT NULL,
   `count` int(11) unsigned NOT NULL,
   `rating` int(11) NOT NULL,
-  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `status` enum('ACTIVE','INACTIVE') NOT NULL DEFAULT 'ACTIVE',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `user_id` (`user_id`),
   KEY `category_id` (`category_id`),
-  KEY `company_id` (`company_id`),
-  CONSTRAINT `FK_product_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
-  CONSTRAINT `FK_product_company` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`),
-  CONSTRAINT `FK_product_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  KEY `company_id` (`company_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE IF NOT EXISTS `order` (
@@ -77,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `address_id` int(11) NOT NULL,
   `buying_date` date DEFAULT NULL,
   `delivery_date` date DEFAULT NULL,
-  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `status` enum('ACTIVE','INACTIVE') NOT NULL DEFAULT 'ACTIVE',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `user_id` (`user_id`),

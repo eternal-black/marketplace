@@ -15,10 +15,10 @@
             <h:form>
                 <h:panelGrid columns="2" style="margin: auto">
                     <h:outputLabel value="#{msg['login.label']}"/>
-                    <h:inputText id="login" value="#{userBean.login}" required="true"/>
+                    <h:inputText id="login" value="#{userBean.currentUser.login}" required="true"/>
 
                     <h:outputLabel value="#{msg['password.label']}"/>
-                    <h:inputSecret id="password" value="#{userBean.password}" required="true"/>
+                    <h:inputSecret id="password" value="#{userBean.currentUser.password}" required="true"/>
                 </h:panelGrid>
                 <br/>
 

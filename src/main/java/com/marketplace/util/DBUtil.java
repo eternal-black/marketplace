@@ -19,6 +19,22 @@ public class DBUtil {
     private static ProductDAO productDAO = new ProductDAOImpl();
     private static SearchProductsDAO searchProductsDAO = new SearchProductsDAOImpl();
 
+    public static User getUser(String login, String password) throws Exception {
+        return userDAO.getByLoginPassword(login, password);
+    }
+
+    public static void addUser(User user) throws Exception {
+        userDAO.add(user);
+    }
+
+    public static void delete(User user) throws Exception {
+        userDAO.delete(user);
+    }
+
+    public static void updateUser(User user) throws Exception {
+        userDAO.update(user);
+    }
+
     public static List<String> getProductCategories() {
         try {
             return searchProductsDAO.getProductCategories();
@@ -71,30 +87,6 @@ public class DBUtil {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public static User getUser(String login, String password) throws SQLException {
-        return userDAO.getByLoginPassword(login, password);
-    }
-
-    public static void addUser(User user) throws Exception {
-        try {
-            userDAO.add(user);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void delete(User user) throws Exception {
-        try {
-            userDAO.delete(user);
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
-
-    public static void updateUser(User user) throws Exception {
-        userDAO.update(user);
     }
 
     public static void addAddress(Address address){

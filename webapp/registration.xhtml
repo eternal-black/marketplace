@@ -10,16 +10,16 @@
         <h:form>
             <h:panelGrid columns="2" style="margin: auto;">
                 <h:outputLabel value="Login"/>
-                <h:inputText id="login" value="#{sessionBean.user.login}" required="true"/>
+                <h:inputText id="login" value="#{userBean.currentUser.login}" required="true"/>
 
                 <h:outputLabel value="Password"/>
-                <h:inputSecret id="password" value="#{sessionBean.user.password}" required="true"/>
+                <h:inputSecret id="password" value="#{userBean.currentUser.password}" required="true"/>
 
                 <h:outputLabel value="First name"/>
-                <h:inputText id="firstName" value="#{sessionBean.user.firstName}" required="true"/>
+                <h:inputText id="firstName" value="#{userBean.currentUser.firstName}" required="true"/>
 
                 <h:outputLabel value="Last name"/>
-                <h:inputText id="lastName" value="#{sessionBean.user.lastName}" required="true"/>
+                <h:inputText id="lastName" value="#{userBean.currentUser.lastName}" required="true"/>
 
             </h:panelGrid>
             <br/>

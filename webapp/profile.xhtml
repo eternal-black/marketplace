@@ -14,22 +14,22 @@
             <h:panelGrid columns="2" style="margin: auto">
 
                 <h:outputLabel value="Login:"/>
-                <h:outputText value="#{sessionBean.user.login}"/>
+                <h:outputText value="#{userBean.currentUser.login}"/>
 
                 <h:outputLabel value="Password:"/>
-                <h:outputText value="#{sessionBean.user.password}"/>
+                <h:outputText value="#{userBean.currentUser.password}"/>
 
                 <h:outputLabel value="First name:"/>
-                <h:outputText value="#{sessionBean.user.firstName}"/>
+                <h:outputText value="#{userBean.currentUser.firstName}"/>
 
                 <h:outputLabel value="Last name:"/>
-                <h:outputText value="#{sessionBean.user.lastName}"/>
+                <h:outputText value="#{userBean.currentUser.lastName}"/>
 
                 <h:outputLabel value="Cash:"/>
-                <h:outputText value="#{sessionBean.user.cash}"/>
+                <h:outputText value="#{userBean.currentUser.cash}"/>
 
                 <h:outputLabel value="Status:"/>
-                <h:outputText value="#{sessionBean.user.status}"/>
+                <h:outputText value="#{userBean.currentUser.status}"/>
             </h:panelGrid>
 
             <h:panelGrid columns="1" style="margin: auto">

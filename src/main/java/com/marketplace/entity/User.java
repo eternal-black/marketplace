@@ -5,43 +5,37 @@ import com.marketplace.entity.enums.UserStatus;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
+public class User implements Serializable {
 
-    private Integer id;
-    private Integer rating;
+    private int id;
     private String login;
     private String password;
     private String firstName;
     private String lastName;
     private String photo;
+    private int rating;
+    private int cash;
     private Role role;
-    private Integer cash;
     private UserStatus status;
 
     public User() {
-    }
-
-    public User(int id, int rating, String login, String password, String firstName,
-                String lastName, String photo) {
-        this.id = id;
-        this.rating = rating;
-        this.login = login;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.photo = photo;
+        this.role = Role.USER;
+        this.status = UserStatus.ACTIVE;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", rating=" + rating +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", photo='" + photo + '\'' +
+                ", rating=" + rating +
+                ", cash=" + cash +
+                ", role=" + role +
+                ", status=" + status +
                 '}';
     }
 
@@ -52,17 +46,17 @@ public class User implements Serializable{
         this.role = role;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setRating(Integer rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
-    public Integer getRating() {
+    public int getRating() {
         return rating;
     }
 
@@ -101,10 +95,10 @@ public class User implements Serializable{
         this.photo = photo;
     }
 
-    public Integer getCash() {
+    public int getCash() {
         return cash;
     }
-    public void setCash(Integer cash) {
+    public void setCash(int cash) {
         this.cash = cash;
     }
 

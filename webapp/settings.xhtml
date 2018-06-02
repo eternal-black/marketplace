@@ -13,16 +13,16 @@
 
         <h:panelGrid columns="2" style="margin: auto">
             <h:outputLabel value="Login"/>
-            <h:inputText value="#{sessionBean.user.login}"/>
+            <h:inputText value="#{userBean.currentUser.login}"/>
 
             <h:outputLabel value="Password"/>
-            <h:inputText value="#{sessionBean.user.password}"/>
+            <h:inputText value="#{userBean.currentUser.password}"/>
 
             <h:outputLabel value="First name"/>
-            <h:inputText value="#{sessionBean.user.firstName}"/>
+            <h:inputText value="#{userBean.currentUser.firstName}"/>
 
             <h:outputLabel value="Last name"/>
-            <h:inputText value="#{sessionBean.user.lastName}"/>
+            <h:inputText value="#{userBean.currentUser.lastName}"/>
         </h:panelGrid>
 
         <h:panelGrid columns="2" style="margin: auto">
