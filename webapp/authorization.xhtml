@@ -5,29 +5,47 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </h:head>
+    <h:body>
+        <h:form>
 
-    <f:view>
-        <h:head>
-            <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-        </h:head>
-        <h:body>
+            <h:panelGrid columns="8" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
+                <h:commandButton value="#{msg['authorization.label']}" action="authorization" immediate="true"/>
+                <h:commandButton value="#{msg['registration.label']}" action="registration" immediate="true"/>
+                <h:commandButton value="#{msg['settings.label']}" action="settings" immediate="true"/>
+                <h:commandButton value="#{msg['profile.label']}" action="profile" immediate="true"/>
+                <h:commandButton value="#{msg['editProduct.label']}" action="editProduct" immediate="true"/>
+                <h:commandButton value="#{msg['viewProduct.label']}" action="viewProduct" immediate="true"/>
+                <h:commandButton value="#{msg['searchProduct.label']}" action="searchProduct" immediate="true"/>
+                <h:commandButton value="#{msg['order.label']}" action="order" immediate="true"/>
+            </h:panelGrid>
+            <br/>
 
-            <h:form>
-                <h:panelGrid columns="2" style="margin: auto">
-                    <h:outputLabel value="#{msg['login.label']}"/>
-                    <h:inputText id="login" value="#{userBean.currentUser.login}" required="true"/>
+            <h:panelGrid style="margin: auto">
+                <h:outputLabel value="#{msg['authorization.label']}"/>
+            </h:panelGrid>
+            <br/>
+            <br/>
 
-                    <h:outputLabel value="#{msg['password.label']}"/>
-                    <h:inputSecret id="password" value="#{userBean.currentUser.password}" required="true"/>
-                </h:panelGrid>
-                <br/>
+            <h:panelGrid columns="2" style="margin: auto">
 
-                <h:panelGrid columns="2" style="margin: auto">
-                    <h:commandButton value="#{msg['login.button']}" action="#{userBean.authorization}"/>
-                </h:panelGrid>
-            </h:form>
+                <h:outputLabel value="#{msg['login.label']}"/>
+                <h:inputText id="login" value="#{userBean.currentUser.login}" required="true"/>
 
-        </h:body>
-    </f:view>
+                <h:outputLabel value="#{msg['password.label']}"/>
+                <h:inputSecret id="password" value="#{userBean.currentUser.password}" required="true"/>
 
+            </h:panelGrid>
+            <br/>
+
+            <h:panelGrid columns="2" style="margin: auto">
+                <h:commandButton value="#{msg['login.button']}" action="#{userBean.authorization}"/>
+            </h:panelGrid>
+
+        </h:form>
+    </h:body>
+</f:view>
 </html>

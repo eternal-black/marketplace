@@ -5,11 +5,30 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/html">
-
-    <f:view>
+<f:view>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </h:head>
+    <h:body>
         <h:form>
 
-            <h:outputLabel value="Your profile" style="margin: auto"/>
+            <h:panelGrid columns="8" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
+                <h:commandButton value="#{msg['authorization.label']}" action="authorization" immediate="true"/>
+                <h:commandButton value="#{msg['registration.label']}" action="registration" immediate="true"/>
+                <h:commandButton value="#{msg['settings.label']}" action="settings" immediate="true"/>
+                <h:commandButton value="#{msg['profile.label']}" action="profile" immediate="true"/>
+                <h:commandButton value="#{msg['editProduct.label']}" action="editProduct" immediate="true"/>
+                <h:commandButton value="#{msg['viewProduct.label']}" action="viewProduct" immediate="true"/>
+                <h:commandButton value="#{msg['searchProduct.label']}" action="searchProduct" immediate="true"/>
+                <h:commandButton value="#{msg['order.label']}" action="order" immediate="true"/>
+            </h:panelGrid>
+            <br/>
+
+            <h:panelGrid style="margin: auto">
+                <h:outputLabel value="#{msg['profile.label']}"/>
+            </h:panelGrid>
+            <br/>
+            <br/>
 
             <h:panelGrid columns="2" style="margin: auto">
 
@@ -30,13 +49,15 @@
 
                 <h:outputLabel value="Status:"/>
                 <h:outputText value="#{userBean.currentUser.status}"/>
+
             </h:panelGrid>
+            <br/>
 
             <h:panelGrid columns="1" style="margin: auto">
                 <h:commandButton value="Settings" action="settings" style="margin: auto"/>
             </h:panelGrid>
 
         </h:form>
-    </f:view>
-
+    </h:body>
+</f:view>
 </html>

@@ -6,31 +6,53 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </h:head>
+    <h:body>
+        <h:form>
 
-    <h:form>
+            <h:panelGrid columns="8" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
+                <h:commandButton value="#{msg['authorization.label']}" action="authorization" immediate="true"/>
+                <h:commandButton value="#{msg['registration.label']}" action="registration" immediate="true"/>
+                <h:commandButton value="#{msg['settings.label']}" action="settings" immediate="true"/>
+                <h:commandButton value="#{msg['profile.label']}" action="profile" immediate="true"/>
+                <h:commandButton value="#{msg['editProduct.label']}" action="editProduct" immediate="true"/>
+                <h:commandButton value="#{msg['viewProduct.label']}" action="viewProduct" immediate="true"/>
+                <h:commandButton value="#{msg['searchProduct.label']}" action="searchProduct" immediate="true"/>
+                <h:commandButton value="#{msg['order.label']}" action="order" immediate="true"/>
+            </h:panelGrid>
+            <br/>
 
-        <h:outputLabel value="Account Settings" style="margin: auto"/>
+            <h:panelGrid style="margin: auto">
+                <h:outputLabel value="#{msg['settings.label']}"/>
+            </h:panelGrid>
+            <br/>
+            <br/>
 
-        <h:panelGrid columns="2" style="margin: auto">
-            <h:outputLabel value="Login"/>
-            <h:inputText value="#{userBean.currentUser.login}"/>
+            <h:panelGrid columns="2" style="margin: auto">
 
-            <h:outputLabel value="Password"/>
-            <h:inputText value="#{userBean.currentUser.password}"/>
+                <h:outputLabel value="Login"/>
+                <h:inputText value="#{userBean.currentUser.login}"/>
 
-            <h:outputLabel value="First name"/>
-            <h:inputText value="#{userBean.currentUser.firstName}"/>
+                <h:outputLabel value="Password"/>
+                <h:inputText value="#{userBean.currentUser.password}"/>
 
-            <h:outputLabel value="Last name"/>
-            <h:inputText value="#{userBean.currentUser.lastName}"/>
-        </h:panelGrid>
+                <h:outputLabel value="First name"/>
+                <h:inputText value="#{userBean.currentUser.firstName}"/>
 
-        <h:panelGrid columns="2" style="margin: auto">
-            <h:commandButton value="delete" action="#{userBean.deleteAccount}"/>
-            <h:commandButton value="update" action="#{userBean.updateAccount}"/>
-        </h:panelGrid>
+                <h:outputLabel value="Last name"/>
+                <h:inputText value="#{userBean.currentUser.lastName}"/>
 
-    </h:form>
+            </h:panelGrid>
+            <br/>
 
+            <h:panelGrid columns="2" style="margin: auto">
+                <h:commandButton value="delete" action="#{userBean.deleteAccount}"/>
+                <h:commandButton value="update" action="#{userBean.updateAccount}"/>
+            </h:panelGrid>
+
+        </h:form>
+    </h:body>
 </f:view>
 </html>
