@@ -18,23 +18,23 @@
         <from-view-id>/search_products.xhtml</from-view-id>
 
         <navigation-case>
-            <from-action>#{searchProductsBean.addToOrder}</from-action>
+            <from-action>#{productBean.addToOrder}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/search_products.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{searchProductsBean.addToOrder}</from-action>
+            <from-action>#{productBean.addToOrder}</from-action>
             <from-outcome>fail</from-outcome>
             <to-view-id>/search_products.xhtml</to-view-id>
         </navigation-case>
 
         <navigation-case>
-            <from-action>#{searchProductsBean.searchProductsByCriteria}</from-action>
+            <from-action>#{productBean.searchProductsByCriteria}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/search_products.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{searchProductsBean.searchProductsByCriteria}</from-action>
+            <from-action>#{productBean.searchProductsByCriteria}</from-action>
             <from-outcome>fail</from-outcome>
             <to-view-id>/search_products.xhtml</to-view-id>
         </navigation-case>

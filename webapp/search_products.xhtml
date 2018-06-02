@@ -34,7 +34,7 @@
             <h:panelGrid style="margin: auto">
                 <h:outputLabel value="#{msg['categories.label']}"/>
 
-                <ui:repeat var="category" value="#{searchProductsBean.getCategories()}">
+                <ui:repeat var="category" value="#{productBean.getCategories()}">
                     <h:commandLink value="#{category}"/>
                     <br/>
                 </ui:repeat>
@@ -44,28 +44,28 @@
             <h:panelGrid columns="2" style="margin: auto">
 
                 <h:outputLabel value="#{msg['searchName.label']}"/>
-                <h:inputText value="#{searchProductsBean.searchCriteria.name}"/>
+                <h:inputText value="#{productBean.searchCriteria.name}"/>
 
                 <h:outputLabel value="#{msg['costFrom.label']}"/>
-                <h:inputText value="#{searchProductsBean.searchCriteria.costFrom}"/>
+                <h:inputText value="#{productBean.searchCriteria.costFrom}"/>
                 <h:outputLabel value="#{msg['costTo.label']}"/>
-                <h:inputText value="#{searchProductsBean.searchCriteria.costTo}"/>
+                <h:inputText value="#{productBean.searchCriteria.costTo}"/>
 
                 <h:outputLabel value="#{msg['discountFrom.label']}"/>
-                <h:inputText value="#{searchProductsBean.searchCriteria.discountFrom}"/>
+                <h:inputText value="#{productBean.searchCriteria.discountFrom}"/>
 
                 <h:outputLabel value="#{msg['ratingFrom.label']}"/>
-                <h:inputText value="#{searchProductsBean.searchCriteria.ratingFrom}"/>
+                <h:inputText value="#{productBean.searchCriteria.ratingFrom}"/>
 
             </h:panelGrid>
             <br/>
 
             <h:panelGrid columns="1" style="margin: auto">
-                <h:commandButton value="#{msg['search.button']}" action="#{searchProductsBean.searchProductsByCriteria}"/>
+                <h:commandButton value="#{msg['search.button']}" action="#{productBean.searchProductsByCriteria}"/>
             </h:panelGrid>
             <br/>
 
-            <p:dataGrid var="prod" value="#{searchProductsBean.products}" columns="3" layout="grid">
+            <p:dataGrid var="prod" value="#{productBean.products}" columns="3" layout="grid">
                 <h:panelGrid columns="2" style="border-style: solid;
                                                 border-width: 1px;
                                                 border-color: black;">
@@ -87,8 +87,8 @@
                         <h:outputLabel value="#{prod.rating}"/>
                     </h:panelGrid>
 
-                    <h:commandButton value="#{msg['addToOrder.button']}" action="#{searchProductsBean.addToOrder}"/>
-                    <h:commandButton value="#{msg['removeFromOrder.button']}" action="#{searchProductsBean.removeFromOrder}"/>
+                    <h:commandButton value="#{msg['addToOrder.button']}" action="#{productBean.addToOrder}"/>
+                    <h:commandButton value="#{msg['removeFromOrder.button']}" action="#{productBean.removeFromOrder}"/>
                     <h:commandButton value="#{msg['view.button']}"/>
                 </h:panelGrid>
 

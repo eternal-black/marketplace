@@ -2,7 +2,6 @@ package com.marketplace.util;
 
 import com.marketplace.dao.AddressDAO;
 import com.marketplace.dao.ProductDAO;
-import com.marketplace.dao.SearchProductsDAO;
 import com.marketplace.dao.UserDAO;
 import com.marketplace.dao.impl.*;
 import com.marketplace.entity.Address;
@@ -17,7 +16,6 @@ public class DBUtil {
     private static UserDAO userDAO = new UserDAOImpl();
     private static AddressDAO addressDAO = new AddressDAOImpl();
     private static ProductDAO productDAO = new ProductDAOImpl();
-    private static SearchProductsDAO searchProductsDAO = new SearchProductsDAOImpl();
 
     public static User getUser(String login, String password) throws Exception {
         return userDAO.getByLoginPassword(login, password);
@@ -37,7 +35,7 @@ public class DBUtil {
 
     public static List<String> getProductCategories() {
         try {
-            return searchProductsDAO.getProductCategories();
+            return productDAO.getProductCategories();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -46,7 +44,7 @@ public class DBUtil {
 
     public static List<Product> getProducts(SearchCriteria criteria) {
         try {
-            return searchProductsDAO.getProducts(criteria);
+            return productDAO.getProducts(criteria);
         } catch (SQLException e) {
             e.printStackTrace();
         }
