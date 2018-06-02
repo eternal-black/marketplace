@@ -2,18 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-
 <hibernate-mapping package="com.marketplace.entity">
-    <class name="com.marketplace.entity.Address" table="address">
+
+    <class name="com.marketplace.entity.Category" table="category">
         <id name="id" column="ID">
             <generator class="identity"/>
         </id>
-        <property name="country" column="country"/>
-        <property name="apartment" column="apartment"/>
-        <property name="city" column="city"/>
-        <property name="home" column="home"/>
-        <property name="street" column="street"/>
-
-
+        <property name="name" column="NAME"/>
     </class>
+
 </hibernate-mapping>

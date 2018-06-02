@@ -2,7 +2,6 @@
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-
 <hibernate-configuration>
     <session-factory>
         <property name="connection.url">jdbc:mysql://localhost:3306/marketplace</property>
@@ -17,11 +16,10 @@
         <property name="hibernate.enable_lazy_load_no_trans">true</property>
         <property name="current_session_context_class">thread</property>
 
-        <mapping resource="User.hbm.xml"/>
-        <mapping resource="Product.hbm.xml"/>
-        <mapping resource="Address.hbm.xml"/>
-        <mapping resource="Category.hbm.xml"/>
+        <mapping resource="mappers/User.hbm.xml"/>
+        <mapping resource="mappers/Product.hbm.xml"/>
+        <mapping resource="mappers/Address.hbm.xml"/>
+        <mapping resource="mappers/Category.hbm.xml"/>
 
     </session-factory>
-
 </hibernate-configuration>

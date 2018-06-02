@@ -10,7 +10,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class AddressBean {
 
-    Address address = new Address();
+    private Address address = new Address();
 
     public String addAddress(){
         Address address = this.address;

@@ -14,6 +14,4 @@ public interface AddressDAO {
 
     void addAddress(Address address) throws SQLException;
     Address getAddress(int id) throws SQLException;
-
-
 }

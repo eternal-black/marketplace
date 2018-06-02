@@ -1,12 +1,8 @@
 package com.marketplace.util;
 
-import com.marketplace.dao.AddressDAO;
-import com.marketplace.dao.ProductDAO;
-import com.marketplace.dao.UserDAO;
+import com.marketplace.dao.*;
 import com.marketplace.dao.impl.*;
-import com.marketplace.entity.Address;
-import com.marketplace.entity.Product;
-import com.marketplace.entity.User;
+import com.marketplace.entity.*;
 
 import java.sql.SQLException;
 import java.util.List;

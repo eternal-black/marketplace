@@ -12,15 +12,6 @@ public class Address {
     public Address() {
     }
 
-    public Address(Integer id, String country, String city, String street, String home, String apartment) {
-        this.id = id;
-        this.country = country;
-        this.city = city;
-        this.street = street;
-        this.home = home;
-        this.apartment = apartment;
-    }
-
     @Override
     public String toString() {
         return "Address{" +

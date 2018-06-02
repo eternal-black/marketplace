@@ -4,6 +4,5 @@ public enum ProductStatus {
     ACTIVE,
     INACTIVE;
 
-    ProductStatus() {
-    }
+    ProductStatus() {}
 }

@@ -8,11 +8,6 @@ public class Category {
     public Category() {
     }
 
-    public Category(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
     public Integer getId() {
         return id;
     }
