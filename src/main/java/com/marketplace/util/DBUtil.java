@@ -13,8 +13,22 @@ public class DBUtil {
     private static AddressDAO addressDAO = new AddressDAOImpl();
     private static ProductDAO productDAO = new ProductDAOImpl();
 
-    public static User getUser(String login, String password) throws Exception {
-        return userDAO.getByLoginPassword(login, password);
+    public static List<Product> getProductsByUser(User user) {
+        try {
+            return productDAO.getProductsByUser(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static User getUser(String login, String password) {
+        try {
+            return userDAO.getByLoginPassword(login, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void addUser(User user) throws Exception {
@@ -50,9 +64,9 @@ public class DBUtil {
     public static void addProductToOrder(Product product) {
     }
 
-    public static void addProduct(Product product) {
+    public static void addProduct(Product product, User user) {
         try {
-            productDAO.addProduct(product);
+            productDAO.addProduct(product, user);
         } catch (SQLException e) {
             e.printStackTrace();
         }

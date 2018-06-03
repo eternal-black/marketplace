@@ -30,6 +30,12 @@
                 <param name="useNamed">true</param>
             </type>
         </property>
+
+        <bag name="products" table="product" cascade="all" inverse="true">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="com.marketplace.entity.Product"/>
+        </bag>
+
     </class>
 
 </hibernate-mapping>

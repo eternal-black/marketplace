@@ -4,6 +4,7 @@ import com.marketplace.entity.enums.Role;
 import com.marketplace.entity.enums.UserStatus;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class User implements Serializable {
 
@@ -17,6 +18,7 @@ public class User implements Serializable {
     private int cash;
     private Role role;
     private UserStatus status;
+    private List<Product> products;
 
     public User() {
         this.role = Role.USER;
@@ -37,6 +39,14 @@ public class User implements Serializable {
                 ", role=" + role +
                 ", status=" + status +
                 '}';
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public Role getRole() {

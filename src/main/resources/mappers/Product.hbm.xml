@@ -22,6 +22,11 @@
                 <param name="useNamed">true</param>
             </type>
         </property>
+
+        <many-to-one name="user" class="com.marketplace.entity.User" not-null="true">
+            <column name="user_id"/>
+        </many-to-one>
+
     </class>
 
 </hibernate-mapping>

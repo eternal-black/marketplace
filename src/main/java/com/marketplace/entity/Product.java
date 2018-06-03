@@ -12,6 +12,7 @@ public class Product {
     private int count;
     private int rating;
     private ProductStatus status;
+    private User user;
 
     public Product() {
     }
@@ -39,6 +40,14 @@ public class Product {
                 ", rating=" + rating +
                 ", status=" + status +
                 '}';
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getId() {
