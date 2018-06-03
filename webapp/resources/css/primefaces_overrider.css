@@ -1,0 +1,11 @@
+.ui-widget {
+    font-family: "Times New Roman";
+    font-size: 16px;
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: Arial;
+    font-size: 13px;
+}
+.ui-widget-content {
+    color: black;
+}
