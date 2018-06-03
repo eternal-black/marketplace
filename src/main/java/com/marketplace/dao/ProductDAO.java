@@ -13,6 +13,7 @@ public interface ProductDAO {
     void addProduct(Product product, User user) throws SQLException;
     void updateProduct(Product product) throws SQLException;
     void deleteProduct(Product product) throws SQLException;
+
     List<Product> getProducts(SearchCriteria criteria) throws SQLException;
     List<Product> getProductsByUser(User user) throws Exception;
     List<String> getProductCategories() throws SQLException;

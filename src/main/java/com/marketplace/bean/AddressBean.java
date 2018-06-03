@@ -2,6 +2,8 @@ package com.marketplace.bean;
 
 import com.marketplace.entity.Address;
 import com.marketplace.util.DBUtil;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -10,7 +12,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class AddressBean {
 
-    private Address address = new Address();
+    @Getter @Setter private Address address = new Address();
 
     public String addAddress(){
         Address address = this.address;
@@ -33,13 +35,5 @@ public class AddressBean {
             return "fail";
         }
         return "success";
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 }

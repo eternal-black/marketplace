@@ -4,6 +4,8 @@ import com.marketplace.entity.Product;
 import com.marketplace.entity.User;
 import com.marketplace.util.DBUtil;
 import com.marketplace.util.SearchCriteria;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -13,13 +15,11 @@ import java.util.List;
 @SessionScoped
 public class ProductBean {
 
-    private User currentUser = DBUtil.getUser("lil", "123");
-
-    private Product product = DBUtil.getProduct(1);
-    private SearchCriteria searchCriteria = new SearchCriteria();
-
-    private List<Product> productsOfCurrentUser = DBUtil.getProductsByUser(this.currentUser);
-    private List<Product> products = DBUtil.getProducts(searchCriteria);
+    @Getter @Setter private User currentUser = DBUtil.getUser("lil", "123");
+    @Getter @Setter private Product product = DBUtil.getProduct(1);
+    @Getter @Setter private SearchCriteria searchCriteria = new SearchCriteria();
+    @Getter @Setter private List<Product> productsOfCurrentUser = DBUtil.getProductsByUser(this.currentUser);
+    @Getter @Setter private List<Product> products = DBUtil.getProducts(searchCriteria);
 
     public List<String> getCategories(){
         return DBUtil.getProductCategories();
@@ -106,45 +106,5 @@ public class ProductBean {
             return "fail";
         }
         return "success";
-    }
-
-    public SearchCriteria getSearchCriteria() {
-        return searchCriteria;
-    }
-
-    public void setSearchCriteria(SearchCriteria searchCriteria) {
-        this.searchCriteria = searchCriteria;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public User getCurrentUser() {
-        return currentUser;
-    }
-
-    public void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
-    }
-
-    public List<Product> getProductsOfCurrentUser() {
-        return productsOfCurrentUser;
-    }
-
-    public void setProductsOfCurrentUser(List<Product> productsOfCurrentUser) {
-        this.productsOfCurrentUser = productsOfCurrentUser;
     }
 }

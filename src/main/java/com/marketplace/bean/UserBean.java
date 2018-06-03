@@ -2,6 +2,8 @@ package com.marketplace.bean;
 
 import com.marketplace.entity.User;
 import com.marketplace.util.DBUtil;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -10,7 +12,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class UserBean {
 
-    private User currentUser = new User();
+    @Getter @Setter private User currentUser = new User();
 
     public String authorization() {
         try {
@@ -45,19 +47,11 @@ public class UserBean {
     public String deleteAccount() {
         try {
             DBUtil.delete(currentUser);
-            currentUser = null;
+            currentUser = new User();
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
         }
         return "success";
-    }
-
-    public User getCurrentUser() {
-        return currentUser;
-    }
-
-    public void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
     }
 }

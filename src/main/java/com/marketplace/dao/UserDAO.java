@@ -10,5 +10,6 @@ public interface UserDAO {
     void add(User user) throws Exception;
     void update(User user) throws Exception;
     void delete(User user) throws Exception;
+
     List<User> getUsers() throws Exception;
 }
