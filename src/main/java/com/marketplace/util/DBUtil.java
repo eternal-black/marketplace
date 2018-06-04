@@ -12,6 +12,28 @@ public class DBUtil {
     private static UserDAO userDAO = new UserDAOImpl();
     private static AddressDAO addressDAO = new AddressDAOImpl();
     private static ProductDAO productDAO = new ProductDAOImpl();
+    private static OrderDAO orderDAO = new OrderDAOImpl();
+
+    public static List<Order> getOrders(User user) {
+        try {
+            return orderDAO.getOrders(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void add(User user, Order order) {
+        try {
+            orderDAO.add(user, order);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateOrder(User user, Order order) {}
+
+    public static void deleteOrder(User user, Order order) {}
 
     public static List<Product> getProductsByUser(User user) {
         try {

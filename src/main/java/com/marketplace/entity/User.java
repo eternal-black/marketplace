@@ -23,6 +23,7 @@ public class User implements Serializable {
     @Getter @Setter private Role role;
     @Getter @Setter private UserStatus status;
     @Getter @Setter private List<Product> products;
+    @Getter @Setter private List<Order> orders;
 
     public User() {
         this.role = Role.USER;

@@ -20,6 +20,7 @@
         <mapping resource="mappers/Product.hbm.xml"/>
         <mapping resource="mappers/Address.hbm.xml"/>
         <mapping resource="mappers/Category.hbm.xml"/>
+        <mapping resource="mappers/Order.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

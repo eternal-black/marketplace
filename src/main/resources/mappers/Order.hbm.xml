@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.marketplace.entity">
+
+    <class name="com.marketplace.entity.Order" table="orders">
+        <id name="id" column="ID">
+            <generator class="identity"/>
+        </id>
+
+        <property name="buyingDate" type="java.util.Date" column="buying_date"/>
+        <property name="deliveryDate" type="java.util.Date" column="delivery_date"/>
+
+        <property name="status" column="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.marketplace.entity.enums.OrderStatus</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+
+        <many-to-one name="user" class="com.marketplace.entity.User" not-null="true">
+            <column name="user_id"/>
+        </many-to-one>
+
+    </class>
+
+</hibernate-mapping>

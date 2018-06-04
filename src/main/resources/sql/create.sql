@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS `marketplace`;
-CREATE DATABASE IF NOT EXISTS `marketplace` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS `marketplace`;
 USE `marketplace`;
 
 DROP TABLE IF EXISTS `address`;
@@ -66,8 +66,8 @@ CREATE TABLE IF NOT EXISTS `product` (
   KEY `company_id` (`company_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE IF NOT EXISTS `order` (
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
@@ -80,7 +80,5 @@ CREATE TABLE IF NOT EXISTS `order` (
   KEY `user_id` (`user_id`),
   KEY `product_id` (`product_id`),
   KEY `address_id` (`address_id`),
-  CONSTRAINT `FK_order_address` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`),
-  CONSTRAINT `FK_order_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
   CONSTRAINT `FK_order_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
