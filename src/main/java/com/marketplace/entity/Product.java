@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @ToString
 public class Product {
 
@@ -17,6 +19,7 @@ public class Product {
     @Getter @Setter private int rating;
     @Getter @Setter private ProductStatus status;
     @Getter @Setter private User user;
+    @Getter @Setter private List<Order> orders;
 
     public Product() {}
 }

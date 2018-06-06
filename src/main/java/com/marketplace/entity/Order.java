@@ -16,6 +16,7 @@ public class Order {
     @Getter @Setter private Date deliveryDate;
     @Getter @Setter private OrderStatus status;
     @Getter @Setter private User user;
+    @Getter @Setter private Product product;
 
     public Order() {}
 }

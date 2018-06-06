@@ -3,8 +3,12 @@ package com.marketplace.util;
 import com.marketplace.dao.*;
 import com.marketplace.dao.impl.*;
 import com.marketplace.entity.*;
+import com.marketplace.entity.enums.OrderStatus;
+import com.marketplace.entity.enums.ProductStatus;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DBUtil {
@@ -16,7 +20,33 @@ public class DBUtil {
 
     public static List<Order> getOrders(User user) {
         try {
-            return orderDAO.getOrders(user);
+            user = new User();
+            user.setFirstName("Punto");
+            user.setLastName("Switcher");
+
+            Product product = new Product();
+            product.setName("Heroine");
+            product.setDescription("hell yea!");
+            product.setCount(6);
+            product.setRating(6);
+            product.setDiscount(6);
+            product.setStatus(ProductStatus.ACTIVE);
+            product.setUser(user);
+
+            Order order = new Order();
+            order.setProduct(product);
+            order.setBuyingDate(new Date());
+            order.setDeliveryDate(new Date());
+            order.setStatus(OrderStatus.ACTIVE);
+
+            List <Order> orders = new ArrayList<Order>();
+            orders.add(order);
+            orders.add(order);
+            orders.add(order);
+            orders.add(order);
+            return orders;
+
+//            return orderDAO.getOrders(user);
         } catch (Exception e) {
             e.printStackTrace();
         }
