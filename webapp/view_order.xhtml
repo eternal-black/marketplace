@@ -27,9 +27,14 @@
             <br/>
 
             <h:panelGrid style="margin: auto">
-                <h:outputLabel value="#{msg['order.label']}"/>
+                <h:outputLabel value="#{msg['viewOrder.label']}"/>
             </h:panelGrid>
             <br/>
+            <br/>
+
+            <h:panelGrid style="margin: auto">
+                <h:commandButton value="Edit"/>
+            </h:panelGrid>
             <br/>
 
             <h:panelGrid style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
@@ -46,12 +51,6 @@
                         <h:outputLabel value="#{msg['status.label']}"/>
                         <h:outputLabel value="#{orderBean.orders.get(0).status}"/>
                     </h:panelGrid>
-                </h:panelGrid>
-
-                <h:panelGrid style="margin: auto" columns="3">
-                    <h:commandButton value="Edit"/>
-                    <h:commandButton value="Remove"/>
-                    <h:commandButton value="Close"/>
                 </h:panelGrid>
 
                 <h:panelGrid style="margin: auto" columns="2">
