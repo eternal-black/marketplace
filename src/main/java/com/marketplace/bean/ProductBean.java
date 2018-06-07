@@ -20,6 +20,7 @@ public class ProductBean {
     @Getter @Setter private SearchCriteria searchCriteria = new SearchCriteria();
     @Getter @Setter private List<Product> productsOfCurrentUser = DBUtil.getProductsByUser(this.currentUser);
     @Getter @Setter private List<Product> products = DBUtil.getProducts(searchCriteria);
+    @Getter @Setter private List<Product> deals = DBUtil.getDeals(currentUser);
 
     public List<String> getCategories(){
         return DBUtil.getProductCategories();

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </h:head>
+    <h:body>
+        <h:form>
+
+        <h:panelGrid columns="10" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
+            <h:commandButton value="#{msg['authorization.label']}" action="authorization" immediate="true"/>
+            <h:commandButton value="#{msg['registration.label']}" action="registration" immediate="true"/>
+            <h:commandButton value="#{msg['settings.label']}" action="settings" immediate="true"/>
+            <h:commandButton value="#{msg['profile.label']}" action="profile" immediate="true"/>
+            <h:commandButton value="#{msg['editProduct.label']}" action="editProduct" immediate="true"/>
+            <h:commandButton value="#{msg['viewProduct.label']}" action="viewProduct" immediate="true"/>
+            <h:commandButton value="#{msg['searchProduct.label']}" action="searchProduct" immediate="true"/>
+            <h:commandButton value="#{msg['order.label']}" action="order" immediate="true"/>
+            <h:commandButton value="#{msg['myProducts.label']}" action="myProducts" immediate="true"/>
+            <h:commandButton value="#{msg['myOrders.label']}" action="myOrders" immediate="true"/>
+        </h:panelGrid>
+        <br/>
+
+        <h:panelGrid style="margin: auto">
+            <h:outputLabel value="#{msg['myDeals.label']}"/>
+        </h:panelGrid>
+        <br/>
+        <br/>
+
+            <c:forEach var="product" items="#{productBean.deals}">
+                <h:panelGrid style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
+
+                    <h:panelGrid style="margin: auto" columns="2">
+                        <h:graphicImage library="images" name="product.png"/>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{msg['name.label']}"/>
+                            <h:outputLabel value="#{product.name}"/>
+
+                            <h:outputLabel value="#{msg['description.label']}"/>
+                            <h:outputLabel value="#{product.description}"/>
+
+                            <h:outputLabel value="#{msg['cost.label']}"/>
+                            <h:outputLabel value="#{product.cost}"/>
+
+                            <h:outputLabel value="#{msg['count.label']}"/>
+                            <h:outputLabel value="#{product.count}"/>
+
+                            <h:outputLabel value="#{msg['rating.label']}"/>
+                            <h:outputLabel value="#{product.rating}"/>
+                        </h:panelGrid>
+                    </h:panelGrid>
+
+                    <c:forEach var="order" items="#{product.orders}">
+
+                        <h:panelGrid style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
+
+                            <h:panelGrid style="margin: auto" columns="2">
+                                <h:graphicImage library="images" name="order.png"/>
+                                <h:panelGrid columns="2">
+                                    <h:outputLabel value="#{msg['buyingDate.label']}"/>
+                                    <h:outputLabel value="#{order.buyingDate}"/>
+
+                                    <h:outputLabel value="#{msg['deliveryDate.label']}"/>
+                                    <h:outputLabel value="#{order.deliveryDate}"/>
+
+                                    <h:outputLabel value="#{msg['status.label']}"/>
+                                    <h:outputLabel value="#{order.status}"/>
+                                </h:panelGrid>
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="2" style="margin: auto">
+                                <h:graphicImage library="images" name="dealer.png"/>
+                                <h:panelGrid columns="2">
+                                    <h:outputLabel value="First name:"/>
+                                    <h:outputText value="#{order.user.firstName}"/>
+
+                                    <h:outputLabel value="Last name:"/>
+                                    <h:outputText value="#{order.user.lastName}"/>
+                                </h:panelGrid>
+                            </h:panelGrid>
+
+                        </h:panelGrid>
+
+                    </c:forEach>
+
+                </h:panelGrid>
+                <br/>
+                <br/>
+
+            </c:forEach>
+
+        </h:form>
+    </h:body>
+</f:view>
+</html>
