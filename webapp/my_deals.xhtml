@@ -5,14 +5,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
-<f:view>
+<f:view locale="#{localeBean.localeCode}">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     </h:head>
     <h:body>
         <h:form>
 
-        <h:panelGrid columns="10" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
+        <h:panelGrid columns="11" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
             <h:commandButton value="#{msg['authorization.label']}" action="authorization" immediate="true"/>
             <h:commandButton value="#{msg['registration.label']}" action="registration" immediate="true"/>
             <h:commandButton value="#{msg['settings.label']}" action="settings" immediate="true"/>
@@ -23,6 +23,10 @@
             <h:commandButton value="#{msg['order.label']}" action="order" immediate="true"/>
             <h:commandButton value="#{msg['myProducts.label']}" action="myProducts" immediate="true"/>
             <h:commandButton value="#{msg['myOrders.label']}" action="myOrders" immediate="true"/>
+            <h:selectOneMenu value="#{localeBean.localeCode}" onchange="submit()"
+                             valueChangeListener="#{localeBean.countryLocaleCodeChanged}">
+                <f:selectItems value="#{localeBean.countries}" />
+            </h:selectOneMenu>
         </h:panelGrid>
         <br/>
 
@@ -76,10 +80,10 @@
                             <h:panelGrid columns="2" style="margin: auto">
                                 <h:graphicImage library="images" name="dealer.png"/>
                                 <h:panelGrid columns="2">
-                                    <h:outputLabel value="First name:"/>
+                                    <h:outputLabel value="#{msg['firstName.label']}"/>
                                     <h:outputText value="#{order.user.firstName}"/>
 
-                                    <h:outputLabel value="Last name:"/>
+                                    <h:outputLabel value="#{msg['lastName.label']}"/>
                                     <h:outputText value="#{order.user.lastName}"/>
                                 </h:panelGrid>
                             </h:panelGrid>

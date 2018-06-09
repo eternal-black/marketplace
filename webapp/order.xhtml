@@ -5,14 +5,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
+<f:view locale="#{localeBean.localeCode}">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     </h:head>
     <h:body>
         <h:form>
 
-            <h:panelGrid columns="10" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
+            <h:panelGrid columns="11" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
                 <h:commandButton value="#{msg['authorization.label']}" action="authorization" immediate="true"/>
                 <h:commandButton value="#{msg['registration.label']}" action="registration" immediate="true"/>
                 <h:commandButton value="#{msg['settings.label']}" action="settings" immediate="true"/>
@@ -23,6 +23,10 @@
                 <h:commandButton value="#{msg['order.label']}" action="order" immediate="true"/>
                 <h:commandButton value="#{msg['myProducts.label']}" action="myProducts" immediate="true"/>
                 <h:commandButton value="#{msg['myOrders.label']}" action="myOrders" immediate="true"/>
+                <h:selectOneMenu value="#{localeBean.localeCode}" onchange="submit()"
+                                 valueChangeListener="#{localeBean.countryLocaleCodeChanged}">
+                    <f:selectItems value="#{localeBean.countries}" />
+                </h:selectOneMenu>
             </h:panelGrid>
             <br/>
 
@@ -33,31 +37,31 @@
             <br/>
 
             <h:panelGrid columns="2" style="margin: auto">
-                <h:outputLabel value="Coutnry"/>
+                <h:outputLabel value="#{msg['country.label']}"/>
                 <h:inputText value="#{addressBean.address.country}"/>
 
-                <h:outputLabel value="City"/>
+                <h:outputLabel value="#{msg['city.label']}"/>
                 <h:inputText value="#{addressBean.address.city}"/>
 
-                <h:outputLabel value="Street"/>
+                <h:outputLabel value="#{msg['street.label']}"/>
                 <h:inputText value="#{addressBean.address.street}"/>
 
-                <h:outputLabel value="Home"/>
+                <h:outputLabel value="#{msg['home.label']}"/>
                 <h:inputText value="#{addressBean.address.home}"/>
 
-                <h:outputLabel value="Apartment"/>
+                <h:outputLabel value="#{msg['apartment.label']}"/>
                 <h:inputText value="#{addressBean.address.apartment}"/>
             </h:panelGrid>
             <br/>
 
             <h:panelGrid columns="1" style="margin: auto">
-                <h:commandButton value="Add address" action="#{addressBean.addAddress}"/>
+                <h:commandButton value="#{msg['addAddress.button']}" action="#{addressBean.addAddress}"/>
             </h:panelGrid>
             <br/>
 
             <h:panelGrid columns="2" style="margin: auto">
                 <h:inputText value="#{addressBean.address.id}"/>
-                <h:commandButton value="search" action="#{addressBean.addressById}"/>
+                <h:commandButton value="#{msg['search.button']}" action="#{addressBean.addressById}"/>
             </h:panelGrid>
 
         </h:form>

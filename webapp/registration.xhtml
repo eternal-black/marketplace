@@ -5,14 +5,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
+<f:view locale="#{localeBean.localeCode}">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     </h:head>
     <h:body>
         <h:form>
 
-            <h:panelGrid columns="10" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
+            <h:panelGrid columns="11" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
                 <h:commandButton value="#{msg['authorization.label']}" action="authorization" immediate="true"/>
                 <h:commandButton value="#{msg['registration.label']}" action="registration" immediate="true"/>
                 <h:commandButton value="#{msg['settings.label']}" action="settings" immediate="true"/>
@@ -23,6 +23,10 @@
                 <h:commandButton value="#{msg['order.label']}" action="order" immediate="true"/>
                 <h:commandButton value="#{msg['myProducts.label']}" action="myProducts" immediate="true"/>
                 <h:commandButton value="#{msg['myOrders.label']}" action="myOrders" immediate="true"/>
+                <h:selectOneMenu value="#{localeBean.localeCode}" onchange="submit()"
+                                 valueChangeListener="#{localeBean.countryLocaleCodeChanged}">
+                    <f:selectItems value="#{localeBean.countries}" />
+                </h:selectOneMenu>
             </h:panelGrid>
             <br/>
 
@@ -34,23 +38,23 @@
 
             <h:panelGrid columns="2" style="margin: auto">
 
-                <h:outputLabel value="Login"/>
+                <h:outputLabel value="#{msg['login.label']}"/>
                 <h:inputText id="login" value="#{userBean.currentUser.login}" required="true"/>
 
-                <h:outputLabel value="Password"/>
+                <h:outputLabel value="#{msg['password.label']}"/>
                 <h:inputSecret id="password" value="#{userBean.currentUser.password}" required="true"/>
 
-                <h:outputLabel value="First name"/>
+                <h:outputLabel value="#{msg['firstName.label']}"/>
                 <h:inputText id="firstName" value="#{userBean.currentUser.firstName}" required="true"/>
 
-                <h:outputLabel value="Last name"/>
+                <h:outputLabel value="#{msg['lastName.label']}"/>
                 <h:inputText id="lastName" value="#{userBean.currentUser.lastName}" required="true"/>
 
             </h:panelGrid>
             <br/>
 
             <h:panelGrid columns="1" style="margin: auto">
-                <h:commandButton value="Registration" action="#{userBean.registration}"/>
+                <h:commandButton value="#{msg['registration.label']}" action="#{userBean.registration}"/>
             </h:panelGrid>
 
         </h:form>

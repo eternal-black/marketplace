@@ -7,6 +7,7 @@
     <application>
         <locale-config>
             <default-locale>en_US</default-locale>
+            <supported-locale>ru_RU</supported-locale>
         </locale-config>
         <resource-bundle>
             <base-name>messages</base-name>
