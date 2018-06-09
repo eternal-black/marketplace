@@ -19,35 +19,12 @@ public class DBUtil {
     private static OrderDAO orderDAO = new OrderDAOImpl();
 
     public static List<Product> getDeals(User user) {
-        user = new User();
-        user.setFirstName("Punto");
-        user.setLastName("Switcher");
-
-        Order order = new Order();
-        order.setBuyingDate(new Date());
-        order.setDeliveryDate(new Date());
-        order.setStatus(OrderStatus.ACTIVE);
-        order.setUser(user);
-
-        List<Order> orders = new ArrayList<Order>();
-        orders.add(order);
-        orders.add(order);
-
-        Product product = new Product();
-        product.setName("Heroine");
-        product.setDescription("hell yea!");
-        product.setCount(6);
-        product.setRating(6);
-        product.setDiscount(6);
-        product.setStatus(ProductStatus.ACTIVE);
-        product.setUser(user);
-        product.setOrders(orders);
-
-        List<Product> products = new ArrayList<Product>();
-        products.add(product);
-        products.add(product);
-
-        return products;
+        try {
+            return productDAO.getProductsByUser(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void updateOrder(Order order) {
