@@ -1,8 +1,10 @@
 package com.marketplace.dao.impl;
 
 import com.marketplace.dao.ProductDAO;
+import com.marketplace.entity.Order;
 import com.marketplace.entity.Product;
 import com.marketplace.entity.User;
+import com.marketplace.entity.enums.OrderStatus;
 import com.marketplace.util.HibernateUtil;
 import com.marketplace.util.SearchCriteria;
 import org.hibernate.Criteria;
@@ -14,6 +16,33 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ProductDAOImpl implements ProductDAO {
+
+    public void addProductToOrder(Product product, User user) throws SQLException {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Order order = new Order();
+        try {
+            session.beginTransaction();
+
+            user = (User) session.get(User.class, user.getId());
+            order.setId(0);
+            order.setStatus(OrderStatus.ACTIVE);
+            order.setUser(user);
+            order.setProduct(product);
+
+
+            user.getOrders().add(order);
+            session.update(user);
+
+            product.getOrders().add(order);
+            session.update(product);
+
+            session.getTransaction().commit();
+        } catch (Exception e){
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }
+        session.close();
+    }
 
     public List<Product> getProductsByUser(User user) throws Exception {
         Session session = HibernateUtil.getSessionFactory().openSession();

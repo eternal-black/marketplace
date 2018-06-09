@@ -359,12 +359,12 @@
         <from-view-id>/search_products.xhtml</from-view-id>
 
         <navigation-case>
-            <from-action>#{productBean.addToOrder}</from-action>
+            <from-action>#{productBean.addProductToOrder}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
+            <to-view-id>/my_orders.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{productBean.addToOrder}</from-action>
+            <from-action>#{productBean.addProductToOrder}</from-action>
             <from-outcome>fail</from-outcome>
             <to-view-id>/search_products.xhtml</to-view-id>
         </navigation-case>

@@ -97,9 +97,13 @@
                         <h:outputLabel value="#{prod.rating}"/>
                     </h:panelGrid>
 
-                    <h:commandButton value="#{msg['addToOrder.button']}" action="#{productBean.addToOrder}"/>
-                    <h:commandButton value="#{msg['removeFromOrder.button']}" action="#{productBean.removeFromOrder}"/>
-                    <h:commandButton value="#{msg['view.button']}"/>
+                    <h:commandButton value="#{msg['addToOrder.button']}" action="#{productBean.addProductToOrder}">
+                        <f:setPropertyActionListener target="#{productBean.product}" value="#{prod}"/>
+                    </h:commandButton>
+                    <!--<h:commandButton value="#{msg['removeFromOrder.button']}" action="#{productBean.removeFromOrder}"/>-->
+                    <h:commandButton value="#{msg['view.button']}" action="viewProduct" immediate="true">
+                        <f:setPropertyActionListener target="#{productBean.product}" value="#{prod}"/>
+                    </h:commandButton>
                 </h:panelGrid>
 
             </p:dataGrid>

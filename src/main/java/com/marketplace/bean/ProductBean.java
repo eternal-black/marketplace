@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import java.util.List;
 
@@ -35,20 +36,20 @@ public class ProductBean {
         }
         return "success";
     }
-
-    public String addToOrder(){
-        try {
-            DBUtil.addProductToOrder(products.get(0));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "fail";
-        }
-        return "success";
-    }
+//
+//    public String addToOrder(){
+//        try {
+//            DBUtil.addProductToOrder(product, currentUser);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return "fail";
+//        }
+//        return "success";
+//    }
 
     public String removeFromOrder(){
         try {
-            DBUtil.addProductToOrder(products.get(0));
+            DBUtil.addProductToOrder(product, currentUser);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -68,7 +69,8 @@ public class ProductBean {
 
     public String addProductToOrder(){
         try {
-            DBUtil.addProductToOrder(product);
+            DBUtil.addProductToOrder(product, currentUser);
+            // this.orderBean.setOrders(DBUtil.getOrders(currentUser));
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";

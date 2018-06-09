@@ -135,7 +135,12 @@ public class DBUtil {
         return null;
     }
 
-    public static void addProductToOrder(Product product) {
+    public static void addProductToOrder(Product product, User user) {
+        try {
+            productDAO.addProductToOrder(product, user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void addProduct(Product product, User user) {

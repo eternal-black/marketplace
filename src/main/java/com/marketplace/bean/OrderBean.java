@@ -16,7 +16,9 @@ import java.util.List;
 @SessionScoped
 public class OrderBean {
 
-    @Getter @Setter private User currentUser = DBUtil.getUser("mel", "123");
+    // @Getter @Setter private User currentUser = DBUtil.getUser("mel", "123");
+    @Getter @Setter private User currentUser = DBUtil.getUser("lil", "123");
+
     @Getter @Setter private List<Order> orders = DBUtil.getOrders(currentUser);
     @Getter @Setter private Order order = DBUtil.getOrder(1);
 
