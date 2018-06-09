@@ -55,10 +55,19 @@
                 </h:panelGrid>
 
                 <h:panelGrid style="margin: auto" columns="4">
-                    <h:commandButton value="#{msg['view.button']}"/>
-                    <h:commandButton value="#{msg['edit.button']}"/>
-                    <h:commandButton value="#{msg['remove.button']}"/>
-                    <h:commandButton value="#{msg['close.button']}"/>
+                    <h:commandButton value="#{msg['view.button']}" action="viewOrder" immediate="true">
+                        <f:setPropertyActionListener target="#{orderBean.order}" value="#{order}"/>
+                    </h:commandButton>
+                    <h:commandButton value="#{msg['edit.button']}" action="editOrder" immediate="true">
+                        <f:setPropertyActionListener target="#{orderBean.order}" value="#{order}"/>
+                    </h:commandButton>
+
+                    <h:commandButton value="#{msg['remove.button']}" action="#{orderBean.deleteOrder}" immediate="true">
+                        <f:setPropertyActionListener target="#{orderBean.order}" value="#{order}"/>
+                    </h:commandButton>
+                    <h:commandButton value="#{msg['close.button']}" action="#{orderBean.closeOrder}" immediate="true">
+                        <f:setPropertyActionListener target="#{orderBean.order}" value="#{order}"/>
+                    </h:commandButton>
                 </h:panelGrid>
 
                 <h:panelGrid style="margin: auto" columns="2">

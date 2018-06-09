@@ -50,35 +50,52 @@ public class DBUtil {
         return products;
     }
 
+    public static void updateOrder(Order order) {
+        try {
+            orderDAO.updateOrder(order);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void closeOrder(Order order) {
+        try {
+            orderDAO.closeOrder(order);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteOrder(Order order) {
+        try {
+            orderDAO.deleteOrder(order);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Order getOrder(int id) {
+        try {
+            return orderDAO.getOrder(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static List<Order> getOrders(User user) {
         try {
-            user = new User();
-            user.setFirstName("Punto");
-            user.setLastName("Switcher");
-
-            Product product = new Product();
-            product.setName("Heroine");
-            product.setDescription("hell yea!");
-            product.setCount(6);
-            product.setRating(6);
-            product.setDiscount(6);
-            product.setStatus(ProductStatus.ACTIVE);
-            product.setUser(user);
-
-            Order order = new Order();
-            order.setProduct(product);
-            order.setBuyingDate(new Date());
-            order.setDeliveryDate(new Date());
-            order.setStatus(OrderStatus.ACTIVE);
-
-            List <Order> orders = new ArrayList<Order>();
-            orders.add(order);
-            orders.add(order);
-            orders.add(order);
-            orders.add(order);
-            return orders;
-
-//            return orderDAO.getOrders(user);
+            return orderDAO.getOrders(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -92,10 +109,6 @@ public class DBUtil {
             e.printStackTrace();
         }
     }
-
-    public static void updateOrder(User user, Order order) {}
-
-    public static void deleteOrder(User user, Order order) {}
 
     public static List<Product> getProductsByUser(User user) {
         try {

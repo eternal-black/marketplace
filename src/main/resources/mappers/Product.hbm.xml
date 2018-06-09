@@ -27,6 +27,11 @@
             <column name="user_id"/>
         </many-to-one>
 
+        <bag name="orders" table="orders" cascade="all" inverse="true">
+            <key column="product_id" not-null="true"/>
+            <one-to-many class="com.marketplace.entity.Order"/>
+        </bag>
+
     </class>
 
 </hibernate-mapping>

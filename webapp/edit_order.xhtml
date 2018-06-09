@@ -37,9 +37,9 @@
             <br/>
 
             <h:panelGrid columns="3" style="margin: auto">
-                <h:commandButton value="#{msg['delete.label']}"/>
-                <h:commandButton value="#{msg['close.label']}"/>
-                <h:commandButton value="#{msg['save.label']}"/>
+                <h:commandButton value="#{msg['remove.button']}" action="#{orderBean.deleteOrder}" immediate="true"/>
+                <h:commandButton value="#{msg['close.button']}" action="#{orderBean.closeOrder}" immediate="true"/>
+                <h:commandButton value="#{msg['save.label']}" action="#{orderBean.updateOrder}" immediate="true"/>
             </h:panelGrid>
             <br/>
 
@@ -74,13 +74,13 @@
                     <h:graphicImage library="images" name="order.png"/>
                     <h:panelGrid columns="2">
                         <h:outputLabel value="#{msg['buyingDate.label']}"/>
-                        <h:outputLabel value="#{orderBean.orders.get(0).buyingDate}"/>
+                        <h:outputLabel value="#{orderBean.order.buyingDate}"/>
 
                         <h:outputLabel value="#{msg['deliveryDate.label']}"/>
-                        <h:inputText value="#{orderBean.orders.get(0).deliveryDate}"/>
+                        <h:inputText value="#{orderBean.order.deliveryDate}"/>
 
                         <h:outputLabel value="#{msg['count.label']}"/>
-                        <h:inputText value="#{orderBean.orders.get(0).deliveryDate}"/>
+                        <h:inputText value=""/>
                     </h:panelGrid>
                 </h:panelGrid>
 
@@ -88,19 +88,19 @@
                     <h:graphicImage library="images" name="product.png"/>
                     <h:panelGrid columns="2">
                         <h:outputLabel value="#{msg['name.label']}"/>
-                        <h:outputLabel value="#{orderBean.orders.get(0).product.name}"/>
+                        <h:outputLabel value="#{orderBean.order.product.name}"/>
 
                         <h:outputLabel value="#{msg['description.label']}"/>
-                        <h:outputLabel value="#{orderBean.orders.get(0).product.description}"/>
+                        <h:outputLabel value="#{orderBean.order.product.description}"/>
 
                         <h:outputLabel value="#{msg['cost.label']}"/>
-                        <h:outputLabel value="#{orderBean.orders.get(0).product.cost}"/>
+                        <h:outputLabel value="#{orderBean.order.product.cost}"/>
 
                         <h:outputLabel value="#{msg['count.label']}"/>
-                        <h:outputLabel value="#{orderBean.orders.get(0).product.count}"/>
+                        <h:outputLabel value="#{orderBean.order.product.count}"/>
 
                         <h:outputLabel value="#{msg['rating.label']}"/>
-                        <h:outputLabel value="#{orderBean.orders.get(0).product.rating}"/>
+                        <h:outputLabel value="#{orderBean.order.product.rating}"/>
                     </h:panelGrid>
                 </h:panelGrid>
 
@@ -108,10 +108,10 @@
                     <h:graphicImage library="images" name="dealer.png"/>
                     <h:panelGrid columns="2">
                         <h:outputLabel value="#{msg['firstName.label']}"/>
-                        <h:outputText value="#{orderBean.orders.get(0).product.user.firstName}"/>
+                        <h:outputText value="#{orderBean.order.product.user.firstName}"/>
 
                         <h:outputLabel value="#{msg['lastName.label']}"/>
-                        <h:outputText value="#{orderBean.orders.get(0).product.user.lastName}"/>
+                        <h:outputText value="#{orderBean.order.product.user.lastName}"/>
                     </h:panelGrid>
                 </h:panelGrid>
 

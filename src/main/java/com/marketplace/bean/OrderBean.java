@@ -18,6 +18,40 @@ public class OrderBean {
 
     @Getter @Setter private User currentUser = DBUtil.getUser("mel", "123");
     @Getter @Setter private List<Order> orders = DBUtil.getOrders(currentUser);
+    @Getter @Setter private Order order = DBUtil.getOrder(1);
+
+    public String updateOrder(){
+        try {
+            DBUtil.updateOrder(order);
+            this.orders = DBUtil.getOrders(currentUser);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
+    }
+
+    public String closeOrder(){
+        try {
+            DBUtil.closeOrder(order);
+            this.orders = DBUtil.getOrders(currentUser);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
+    }
+
+    public String deleteOrder(){
+        try {
+            DBUtil.deleteOrder(order);
+            this.orders = DBUtil.getOrders(currentUser);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
+    }
 
     public String addOrder(){
         try {
