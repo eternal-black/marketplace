@@ -2,8 +2,8 @@ package com.marketplace.service.impl;
 
 import com.marketplace.dao.OrderDAO;
 import com.marketplace.dao.impl.OrderDAOImpl;
-import com.marketplace.entity.Order;
-import com.marketplace.entity.User;
+import com.marketplace.domain.Order;
+import com.marketplace.domain.User;
 import com.marketplace.service.OrderService;
 
 import java.sql.SQLException;

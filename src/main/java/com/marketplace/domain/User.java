@@ -1,7 +1,7 @@
-package com.marketplace.entity;
+package com.marketplace.domain;
 
-import com.marketplace.entity.enums.Role;
-import com.marketplace.entity.enums.UserStatus;
+import com.marketplace.domain.enums.Role;
+import com.marketplace.domain.enums.UserStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

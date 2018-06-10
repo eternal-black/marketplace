@@ -1,6 +1,6 @@
 package com.marketplace.bean;
 
-import com.marketplace.entity.User;
+import com.marketplace.domain.User;
 import lombok.Getter;
 import lombok.Setter;
 

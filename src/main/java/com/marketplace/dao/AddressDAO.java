@@ -1,6 +1,6 @@
 package com.marketplace.dao;
 
-import com.marketplace.entity.Address;
+import com.marketplace.domain.Address;
 
 import java.sql.SQLException;
 import java.util.List;

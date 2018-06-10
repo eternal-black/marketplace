@@ -2,10 +2,7 @@ package com.marketplace.util;
 
 import com.marketplace.dao.*;
 import com.marketplace.dao.impl.*;
-import com.marketplace.entity.*;
-
-import java.sql.SQLException;
-import java.util.List;
+import com.marketplace.domain.*;
 
 public class DBUtil {
 

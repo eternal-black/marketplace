@@ -1,10 +1,10 @@
 package com.marketplace.dao.impl;
 
 import com.marketplace.dao.ProductDAO;
-import com.marketplace.entity.Order;
-import com.marketplace.entity.Product;
-import com.marketplace.entity.User;
-import com.marketplace.entity.enums.OrderStatus;
+import com.marketplace.domain.Order;
+import com.marketplace.domain.Product;
+import com.marketplace.domain.User;
+import com.marketplace.domain.enums.OrderStatus;
 import com.marketplace.util.HibernateUtil;
 import com.marketplace.util.SearchCriteria;
 import org.hibernate.Criteria;

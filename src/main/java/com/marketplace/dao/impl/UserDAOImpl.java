@@ -1,7 +1,7 @@
 package com.marketplace.dao.impl;
 
 import com.marketplace.dao.UserDAO;
-import com.marketplace.entity.User;
+import com.marketplace.domain.User;
 import com.marketplace.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;

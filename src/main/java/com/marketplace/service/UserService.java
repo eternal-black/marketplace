@@ -1,6 +1,6 @@
 package com.marketplace.service;
 
-import com.marketplace.entity.User;
+import com.marketplace.domain.User;
 
 public interface UserService {
 

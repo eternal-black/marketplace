@@ -1,4 +1,4 @@
-package com.marketplace.entity;
+package com.marketplace.domain;
 
 import lombok.Getter;
 import lombok.Setter;

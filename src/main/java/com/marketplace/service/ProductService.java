@@ -1,7 +1,7 @@
 package com.marketplace.service;
 
-import com.marketplace.entity.Product;
-import com.marketplace.entity.User;
+import com.marketplace.domain.Product;
+import com.marketplace.domain.User;
 import com.marketplace.util.SearchCriteria;
 
 import java.util.List;

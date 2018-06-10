@@ -1,6 +1,6 @@
 package com.marketplace.dao;
 
-import com.marketplace.entity.User;
+import com.marketplace.domain.User;
 
 public interface UserDAO {
 

@@ -1,4 +1,4 @@
-package com.marketplace.entity.enums;
+package com.marketplace.domain.enums;
 
 public enum OrderStatus {
     ACTIVE,

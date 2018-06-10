@@ -2,8 +2,8 @@ package com.marketplace.service.impl;
 
 import com.marketplace.dao.ProductDAO;
 import com.marketplace.dao.impl.ProductDAOImpl;
-import com.marketplace.entity.Product;
-import com.marketplace.entity.User;
+import com.marketplace.domain.Product;
+import com.marketplace.domain.User;
 import com.marketplace.service.ProductService;
 import com.marketplace.util.SearchCriteria;
 

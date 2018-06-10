@@ -1,7 +1,7 @@
 package com.marketplace.service;
 
-import com.marketplace.entity.Order;
-import com.marketplace.entity.User;
+import com.marketplace.domain.Order;
+import com.marketplace.domain.User;
 
 import java.util.List;
 

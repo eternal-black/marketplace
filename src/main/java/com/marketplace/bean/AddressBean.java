@@ -1,6 +1,6 @@
 package com.marketplace.bean;
 
-import com.marketplace.entity.Address;
+import com.marketplace.domain.Address;
 import com.marketplace.util.DBUtil;
 import lombok.Getter;
 import lombok.Setter;

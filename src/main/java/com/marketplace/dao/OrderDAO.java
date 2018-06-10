@@ -1,8 +1,8 @@
 package com.marketplace.dao;
 
-import com.marketplace.entity.Order;
-import com.marketplace.entity.Product;
-import com.marketplace.entity.User;
+import com.marketplace.domain.Order;
+import com.marketplace.domain.Product;
+import com.marketplace.domain.User;
 
 import java.util.List;
 

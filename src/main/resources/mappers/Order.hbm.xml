@@ -2,9 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.marketplace.entity">
+<hibernate-mapping package="com.marketplace.domain">
 
-    <class name="com.marketplace.entity.Order" table="orders">
+    <class name="com.marketplace.domain.Order" table="orders">
         <id name="id" column="ID">
             <generator class="identity"/>
         </id>
@@ -14,16 +14,16 @@
 
         <property name="status" column="status">
             <type name="org.hibernate.type.EnumType">
-                <param name="enumClass">com.marketplace.entity.enums.OrderStatus</param>
+                <param name="enumClass">com.marketplace.domain.enums.OrderStatus</param>
                 <param name="useNamed">true</param>
             </type>
         </property>
 
-        <many-to-one name="user" class="com.marketplace.entity.User" not-null="true">
+        <many-to-one name="user" class="com.marketplace.domain.User" not-null="true">
             <column name="user_id"/>
         </many-to-one>
 
-        <many-to-one name="product" class="com.marketplace.entity.Product" not-null="true">
+        <many-to-one name="product" class="com.marketplace.domain.Product" not-null="true">
             <column name="product_id"/>
         </many-to-one>
 

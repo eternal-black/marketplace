@@ -1,8 +1,8 @@
 package com.marketplace.bean;
 
-import com.marketplace.entity.Order;
-import com.marketplace.entity.User;
-import com.marketplace.entity.enums.OrderStatus;
+import com.marketplace.domain.Order;
+import com.marketplace.domain.User;
+import com.marketplace.domain.enums.OrderStatus;
 import com.marketplace.service.OrderService;
 import com.marketplace.service.impl.OrderServiceImpl;
 import com.marketplace.util.DBUtil;

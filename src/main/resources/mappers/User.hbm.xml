@@ -2,9 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.marketplace.entity">
+<hibernate-mapping package="com.marketplace.domain">
 
-    <class name="com.marketplace.entity.User" table="user">
+    <class name="com.marketplace.domain.User" table="user">
         <id name="id" column="ID">
             <generator class="identity"/>
         </id>
@@ -13,7 +13,7 @@
 
         <property name="role" column="ROLE">
             <type name="org.hibernate.type.EnumType">
-                <param name="enumClass">com.marketplace.entity.enums.Role</param>
+                <param name="enumClass">com.marketplace.domain.enums.Role</param>
                 <param name="useNamed">true</param>
             </type>
         </property>
@@ -26,19 +26,19 @@
 
         <property name="status" column="status">
             <type name="org.hibernate.type.EnumType">
-                <param name="enumClass">com.marketplace.entity.enums.UserStatus</param>
+                <param name="enumClass">com.marketplace.domain.enums.UserStatus</param>
                 <param name="useNamed">true</param>
             </type>
         </property>
 
         <bag name="products" table="product" cascade="all" inverse="true">
             <key column="user_id" not-null="true"/>
-            <one-to-many class="com.marketplace.entity.Product"/>
+            <one-to-many class="com.marketplace.domain.Product"/>
         </bag>
 
         <bag name="orders" table="orders" cascade="all" inverse="true">
             <key column="user_id" not-null="true"/>
-            <one-to-many class="com.marketplace.entity.Order"/>
+            <one-to-many class="com.marketplace.domain.Order"/>
         </bag>
 
     </class>

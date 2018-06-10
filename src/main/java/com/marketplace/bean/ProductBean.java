@@ -1,7 +1,7 @@
 package com.marketplace.bean;
 
-import com.marketplace.entity.Product;
-import com.marketplace.entity.User;
+import com.marketplace.domain.Product;
+import com.marketplace.domain.User;
 import com.marketplace.service.ProductService;
 import com.marketplace.service.impl.ProductServiceImpl;
 import com.marketplace.util.DBUtil;

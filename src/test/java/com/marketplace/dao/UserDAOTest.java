@@ -1,6 +1,6 @@
 package com.marketplace.dao;
 
-import com.marketplace.entity.User;
+import com.marketplace.domain.User;
 import com.marketplace.util.DBUtil;
 
 import org.junit.Assert;
