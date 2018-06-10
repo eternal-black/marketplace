@@ -18,6 +18,16 @@ public class DBUtil {
     private static ProductDAO productDAO = new ProductDAOImpl();
     private static OrderDAO orderDAO = new OrderDAOImpl();
 
+    // TODO: remove after adding of services layer
+    public static User getUser(String login, String password) {
+        try {
+            return userDAO.get(login, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static List<Product> getDeals(User user) {
         try {
             return productDAO.getProductsByUser(user);
@@ -94,27 +104,6 @@ public class DBUtil {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public static User getUser(String login, String password) {
-        try {
-            return userDAO.getByLoginPassword(login, password);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public static void addUser(User user) throws Exception {
-        userDAO.add(user);
-    }
-
-    public static void delete(User user) throws Exception {
-        userDAO.delete(user);
-    }
-
-    public static void updateUser(User user) throws Exception {
-        userDAO.update(user);
     }
 
     public static List<String> getProductCategories() {

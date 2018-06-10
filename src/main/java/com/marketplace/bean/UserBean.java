@@ -1,24 +1,33 @@
 package com.marketplace.bean;
 
 import com.marketplace.entity.User;
-import com.marketplace.util.DBUtil;
+import com.marketplace.service.UserService;
+import com.marketplace.service.impl.UserServiceImpl;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean (name = "userBean")
 @SessionScoped
 public class UserBean {
 
-    @Getter @Setter private User currentUser = new User();
+    @ManagedProperty(value = "#{sessionBean}")
+    @Getter @Setter
+    private SessionBean sessionBean;
+
+    @Getter @Setter
+    private UserService userService = new UserServiceImpl();
+
 
     public String authorization() {
         try {
-            currentUser = DBUtil.getUser(currentUser.getLogin(), currentUser.getPassword());
+            sessionBean.setCurrentUser(userService.get(
+                    sessionBean.getCurrentUser().getLogin(),
+                    sessionBean.getCurrentUser().getPassword()));
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";
@@ -26,9 +35,8 @@ public class UserBean {
 
     public String registration() {
         try {
-            DBUtil.addUser(currentUser);
+            userService.add(sessionBean.getCurrentUser());
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";
@@ -36,9 +44,8 @@ public class UserBean {
 
     public String updateAccount() {
         try {
-            DBUtil.updateUser(currentUser);
+            userService.update(sessionBean.getCurrentUser());
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";
@@ -46,10 +53,9 @@ public class UserBean {
 
     public String deleteAccount() {
         try {
-            DBUtil.delete(currentUser);
-            currentUser = new User();
+            userService.delete(sessionBean.getCurrentUser());
+            sessionBean.setCurrentUser(new User());
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";

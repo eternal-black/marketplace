@@ -45,22 +45,22 @@
             <h:panelGrid columns="2" style="margin: auto">
 
                 <h:outputLabel value="#{msg['login.label']}"/>
-                <h:outputText value="#{userBean.currentUser.login}"/>
+                <h:outputText value="#{sessionBean.currentUser.login}"/>
 
                 <h:outputLabel value="#{msg['password.label']}"/>
-                <h:outputText value="#{userBean.currentUser.password}"/>
+                <h:outputText value="#{sessionBean.currentUser.password}"/>
 
                 <h:outputLabel value="#{msg['firstName.label']}"/>
-                <h:outputText value="#{userBean.currentUser.firstName}"/>
+                <h:outputText value="#{sessionBean.currentUser.firstName}"/>
 
                 <h:outputLabel value="#{msg['lastName.label']}"/>
-                <h:outputText value="#{userBean.currentUser.lastName}"/>
+                <h:outputText value="#{sessionBean.currentUser.lastName}"/>
 
                 <h:outputLabel value="#{msg['cash.label']}"/>
-                <h:outputText value="#{userBean.currentUser.cash}"/>
+                <h:outputText value="#{sessionBean.currentUser.cash}"/>
 
                 <h:outputLabel value="#{msg['status.label']}"/>
-                <h:outputText value="#{userBean.currentUser.status}"/>
+                <h:outputText value="#{sessionBean.currentUser.status}"/>
 
             </h:panelGrid>
             <br/>

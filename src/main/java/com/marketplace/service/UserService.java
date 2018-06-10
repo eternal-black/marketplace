@@ -1,8 +1,8 @@
-package com.marketplace.dao;
+package com.marketplace.service;
 
 import com.marketplace.entity.User;
 
-public interface UserDAO {
+public interface UserService {
 
     User get(String login, String password) throws Exception;
     void add(User user) throws Exception;
