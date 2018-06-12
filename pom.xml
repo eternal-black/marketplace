@@ -10,8 +10,6 @@
 
     <properties>
         <junit.version>4.12</junit.version>
-        <mysql.version>6.0.5</mysql.version>
-        <mybatis.version>3.4.1</mybatis.version>
         <com.sun.faces.jsf-api>2.2.1</com.sun.faces.jsf-api>
         <com.sun.faces.jsf-impl>2.2.11</com.sun.faces.jsf-impl>
         <javax.servlet.servlet-api>2.5</javax.servlet.servlet-api>
@@ -29,14 +27,19 @@
         <commons-collections>3.2.1</commons-collections>
         <cglib>2.2</cglib>
         <hibernate-entitymanager>5.1.0.Final</hibernate-entitymanager>
-        <mysql-connector-java>5.1.39</mysql-connector-java>
         <cobertura-maven-plugin>2.7</cobertura-maven-plugin>
         <lombok>1.16.22</lombok>
         <primefaces>6.2</primefaces>
         <slf4j>1.7.25</slf4j>
+        <h2database>1.4.197</h2database>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2database}</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -138,11 +141,6 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate-entitymanager}</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector-java}</version>
         </dependency>
     </dependencies>
 

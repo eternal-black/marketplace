@@ -15,7 +15,7 @@
 
 ## Infrastructure
 
-* Server: Tomcat
-* Db: MySQL
+* Server: Jetty
+* Db: H2
 * CI: Travis CI
 * Tests coverage: Codecov
