@@ -5,6 +5,8 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.url">jdbc:h2:tcp://localhost/~/marketplace</property>
+        <!--<property name="connection.url">jdbc:h2:tcp://localhost/~/marketplace_test</property>-->
+
         <property name="connection.driver_class">org.h2.Driver</property>
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
         <property name="connection.username">root</property>
