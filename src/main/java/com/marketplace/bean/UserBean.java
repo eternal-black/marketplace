@@ -60,4 +60,8 @@ public class UserBean {
         }
         return "success";
     }
+
+    public String logout() {
+        return "success";
+    }
 }
