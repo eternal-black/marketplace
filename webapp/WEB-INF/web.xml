@@ -9,10 +9,20 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>
+            /WEB-INF/navigation/user.xml,
+            /WEB-INF/navigation/product.xml,
+            /WEB-INF/navigation/order.xml
+        </param-value>
+    </context-param>
 
     <context-param>
         <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
@@ -22,4 +32,5 @@
     <welcome-file-list>
         <welcome-file>authorization.xhtml</welcome-file>
     </welcome-file-list>
+
 </web-app>
