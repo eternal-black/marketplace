@@ -8,21 +8,14 @@ import java.util.List;
 
 public interface ProductService {
 
-    public List<Product> getDeals(User user);
+    Product getProduct(int id);
+    void addProductToOrder(Product product, User user);
+    void addProduct(Product product, User user);
+    void updateProduct(Product product);
+    void deleteProduct(Product product);
 
-    public List<Product> getProductsByUser(User user);
-
-    public List<String> getProductCategories();
-
-    public List<Product> getProducts(SearchCriteria criteria);
-
-    public void addProductToOrder(Product product, User user);
-
-    public void addProduct(Product product, User user);
-
-    public void updateProduct(Product product);
-
-    public void deleteProduct(Product product);
-
-    public Product getProduct(int id);
+    List<Product> getDeals(User user);
+    List<Product> getProductsByUser(User user);
+    List<String> getProductCategories();
+    List<Product> getProducts(SearchCriteria criteria);
 }

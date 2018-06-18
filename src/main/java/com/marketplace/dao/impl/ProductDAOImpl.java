@@ -17,6 +17,21 @@ import java.util.List;
 
 public class ProductDAOImpl implements ProductDAO {
 
+    public Product getProduct(int id) throws SQLException {
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
+        Product product = new Product();
+        try {
+            Criteria criteria = session.createCriteria(Product.class);
+            criteria.setMaxResults(1);
+            criteria.add(Restrictions.eq("id", id));
+            product = (Product) criteria.list().get(0);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        session.close();
+        return product;
+    }
+
     public void addProductToOrder(Product product, User user) throws SQLException {
         Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         Order order = new Order();
@@ -37,6 +52,52 @@ public class ProductDAOImpl implements ProductDAO {
             session.update(product);
 
             session.getTransaction().commit();
+        } catch (Exception e){
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }
+        session.close();
+    }
+
+    public void addProduct(Product product, User user) throws SQLException {
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+
+            user = (User) session.get(User.class, user.getId());
+            product.setId(0);
+            product.setUser(user);
+            user.getProducts().add(product);
+
+            session.update(user);
+            session.getTransaction().commit();
+        } catch (Exception e){
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }
+        session.close();
+    }
+
+    public void updateProduct(Product product) throws SQLException {
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            session.update(product);
+            session.getTransaction().commit();
+        }catch (Exception e){
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }
+        session.close();
+    }
+
+    public void deleteProduct(Product product) throws SQLException {
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            session.delete(product);
+            session.getTransaction().commit();
+            session.close();
         } catch (Exception e){
             session.getTransaction().rollback();
             e.printStackTrace();
@@ -112,64 +173,4 @@ public class ProductDAOImpl implements ProductDAO {
         return products;
     }
 
-    public Product getProduct(int id) throws SQLException {
-        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
-        Product product = new Product();
-        try {
-            Criteria criteria = session.createCriteria(Product.class);
-            criteria.setMaxResults(1);
-            criteria.add(Restrictions.eq("id", id));
-            product = (Product) criteria.list().get(0);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        session.close();
-        return product;
-    }
-
-    public void addProduct(Product product, User user) throws SQLException {
-        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
-        try {
-            session.beginTransaction();
-
-            user = (User) session.get(User.class, user.getId());
-            product.setId(0);
-            product.setUser(user);
-            user.getProducts().add(product);
-
-            session.update(user);
-            session.getTransaction().commit();
-        } catch (Exception e){
-            session.getTransaction().rollback();
-            e.printStackTrace();
-        }
-        session.close();
-    }
-
-    public void updateProduct(Product product) throws SQLException {
-        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
-        try {
-            session.beginTransaction();
-            session.update(product);
-            session.getTransaction().commit();
-        }catch (Exception e){
-            session.getTransaction().rollback();
-            e.printStackTrace();
-        }
-        session.close();
-    }
-
-    public void deleteProduct(Product product) throws SQLException {
-        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
-        try {
-            session.beginTransaction();
-            session.delete(product);
-            session.getTransaction().commit();
-            session.close();
-        } catch (Exception e){
-            session.getTransaction().rollback();
-            e.printStackTrace();
-        }
-        session.close();
-    }
 }

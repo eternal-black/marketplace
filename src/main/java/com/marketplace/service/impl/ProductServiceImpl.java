@@ -7,7 +7,6 @@ import com.marketplace.domain.User;
 import com.marketplace.service.ProductService;
 import com.marketplace.util.SearchCriteria;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
@@ -38,7 +37,7 @@ public class ProductServiceImpl implements ProductService {
     public List<String> getProductCategories() {
         try {
             return productDAO.getProductCategories();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -47,7 +46,7 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProducts(SearchCriteria criteria) {
         try {
             return productDAO.getProducts(criteria);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -56,7 +55,7 @@ public class ProductServiceImpl implements ProductService {
     public void addProductToOrder(Product product, User user) {
         try {
             productDAO.addProductToOrder(product, user);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -64,7 +63,7 @@ public class ProductServiceImpl implements ProductService {
     public void addProduct(Product product, User user) {
         try {
             productDAO.addProduct(product, user);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -72,7 +71,7 @@ public class ProductServiceImpl implements ProductService {
     public void updateProduct(Product product) {
         try {
             productDAO.updateProduct(product);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -80,7 +79,7 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Product product) {
         try {
             productDAO.deleteProduct(product);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -88,7 +87,7 @@ public class ProductServiceImpl implements ProductService {
     public Product getProduct(int id) {
         try {
             return productDAO.getProduct(id);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
