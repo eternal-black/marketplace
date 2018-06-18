@@ -17,17 +17,13 @@
         <h:form>
 
             <h:panelGrid columns="12" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
-                <h:commandButton value="#{msg['authorization.label']}" action="authorization" immediate="true"/>
-                <h:commandButton value="#{msg['registration.label']}" action="registration" immediate="true"/>
-                <h:commandButton value="#{msg['settings.label']}" action="settings" immediate="true"/>
                 <h:commandButton value="#{msg['profile.label']}" action="profile" immediate="true"/>
-                <h:commandButton value="#{msg['editProduct.label']}" action="editProduct" immediate="true"/>
-                <h:commandButton value="#{msg['viewProduct.label']}" action="viewProduct" immediate="true"/>
                 <h:commandButton value="#{msg['searchProduct.label']}" action="searchProduct" immediate="true"/>
-                <h:commandButton value="#{msg['order.label']}" action="order" immediate="true"/>
                 <h:commandButton value="#{msg['myProducts.label']}" action="myProducts" immediate="true"/>
                 <h:commandButton value="#{msg['myOrders.label']}" action="myOrders" immediate="true"/>
                 <h:commandButton value="#{msg['myDeals.label']}" action="myDeals" immediate="true"/>
+                <h:commandButton value="#{msg['settings.label']}" action="settings" immediate="true"/>
+                <h:commandButton value="#{msg['logout.label']}" action="#{userBean.logout}"/>
                 <h:selectOneMenu value="#{localeBean.localeCode}" onchange="submit()"
                                  valueChangeListener="#{localeBean.countryLocaleCodeChanged}">
                     <f:selectItems value="#{localeBean.countries}" />
