@@ -6,318 +6,318 @@
 
     <!-- SEARCH PRODUCTS -->
     <navigation-rule>
-        <from-view-id>/search_products.xhtml</from-view-id>
+        <from-view-id>/pages/product/search_products.xhtml</from-view-id>
 
         <!-- add product to order -->
         <navigation-case>
             <from-action>#{productBean.addProductToOrder}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/my_orders.xhtml</to-view-id>
+            <to-view-id>/pages/order/my_orders.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{productBean.addProductToOrder}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/search_products.xhtml</to-view-id>
         </navigation-case>
 
         <!-- search products by criteria -->
         <navigation-case>
             <from-action>#{productBean.searchProductsByCriteria}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/search_products.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{productBean.searchProductsByCriteria}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/search_products.xhtml</to-view-id>
         </navigation-case>
 
         <!-- logout -->
         <navigation-case>
             <from-action>#{userBean.logout}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/authorization.xhtml</to-view-id>
+            <to-view-id>/pages/user/authorization.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{userBean.logout}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/search_products.xhtml</to-view-id>
         </navigation-case>
 
         <!-- links -->
         <navigation-case>
             <from-outcome>myDeals</from-outcome>
-            <to-view-id>/my_deals.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_deals.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>myOrders</from-outcome>
-            <to-view-id>/my_orders.xhtml</to-view-id>
+            <to-view-id>/pages/order/my_orders.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>settings</from-outcome>
-            <to-view-id>/settings.xhtml</to-view-id>
+            <to-view-id>/pages/user/settings.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>profile</from-outcome>
-            <to-view-id>/profile.xhtml</to-view-id>
+            <to-view-id>/pages/user/profile.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>searchProduct</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/search_products.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>myProducts</from-outcome>
-            <to-view-id>/my_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_products.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
     <!-- MY PRODUCTS -->
     <navigation-rule>
-        <from-view-id>/my_products.xhtml</from-view-id>
+        <from-view-id>/pages/product/my_products.xhtml</from-view-id>
 
         <!-- delete product -->
         <navigation-case>
             <from-action>#{productBean.deleteProduct}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/my_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_products.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{productBean.deleteProduct}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/my_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_products.xhtml</to-view-id>
         </navigation-case>
 
         <!-- edit product setter-link -->
         <navigation-case>
             <from-outcome>editProduct</from-outcome>
-            <to-view-id>/edit_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/edit_product.xhtml</to-view-id>
         </navigation-case>
 
         <!-- view product setter-link -->
         <navigation-case>
             <from-outcome>viewProduct</from-outcome>
-            <to-view-id>/view_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/view_product.xhtml</to-view-id>
         </navigation-case>
 
         <!-- logout -->
         <navigation-case>
             <from-action>#{userBean.logout}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/authorization.xhtml</to-view-id>
+            <to-view-id>/pages/user/authorization.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{userBean.logout}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/my_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_products.xhtml</to-view-id>
         </navigation-case>
 
         <!-- links -->
         <navigation-case>
             <from-outcome>myDeals</from-outcome>
-            <to-view-id>/my_deals.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_deals.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>myOrders</from-outcome>
-            <to-view-id>/my_orders.xhtml</to-view-id>
+            <to-view-id>/pages/order/my_orders.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>settings</from-outcome>
-            <to-view-id>/settings.xhtml</to-view-id>
+            <to-view-id>/pages/user/settings.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>profile</from-outcome>
-            <to-view-id>/profile.xhtml</to-view-id>
+            <to-view-id>/pages/user/profile.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>searchProduct</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/search_products.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>myProducts</from-outcome>
-            <to-view-id>/my_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_products.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
     <!-- MY DEALS -->
     <navigation-rule>
-        <from-view-id>/my_deals.xhtml</from-view-id>
+        <from-view-id>/pages/product/my_deals.xhtml</from-view-id>
 
         <!-- logout -->
         <navigation-case>
             <from-action>#{userBean.logout}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/authorization.xhtml</to-view-id>
+            <to-view-id>/pages/user/authorization.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{userBean.logout}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/my_deals.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_deals.xhtml</to-view-id>
         </navigation-case>
 
         <!-- links -->
         <navigation-case>
             <from-outcome>myDeals</from-outcome>
-            <to-view-id>/my_deals.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_deals.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>myOrders</from-outcome>
-            <to-view-id>/my_orders.xhtml</to-view-id>
+            <to-view-id>/pages/order/my_orders.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>settings</from-outcome>
-            <to-view-id>/settings.xhtml</to-view-id>
+            <to-view-id>/pages/user/settings.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>profile</from-outcome>
-            <to-view-id>/profile.xhtml</to-view-id>
+            <to-view-id>/pages/user/profile.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>searchProduct</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/search_products.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>myProducts</from-outcome>
-            <to-view-id>/my_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_products.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
     <!-- EDIT PRODUCT -->
     <navigation-rule>
-        <from-view-id>/edit_product.xhtml</from-view-id>
+        <from-view-id>/pages/product/edit_product.xhtml</from-view-id>
 
         <!-- add product -->
         <navigation-case>
             <from-action>#{productBean.addProduct}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/view_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/view_product.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{productBean.addProduct}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/edit_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/edit_product.xhtml</to-view-id>
         </navigation-case>
 
         <!-- update product -->
         <navigation-case>
             <from-action>#{productBean.updateProduct}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/view_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/view_product.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{productBean.updateProduct}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/edit_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/edit_product.xhtml</to-view-id>
         </navigation-case>
 
         <!-- delete product -->
         <navigation-case>
             <from-action>#{productBean.deleteProduct}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/profile.xhtml</to-view-id>
+            <to-view-id>/pages/user/profile.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{productBean.deleteProduct}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/profile.xhtml</to-view-id>
+            <to-view-id>/pages/user/profile.xhtml</to-view-id>
         </navigation-case>
 
         <!-- logout -->
         <navigation-case>
             <from-action>#{userBean.logout}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/authorization.xhtml</to-view-id>
+            <to-view-id>/pages/user/authorization.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{userBean.logout}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/edit_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/edit_product.xhtml</to-view-id>
         </navigation-case>
 
         <!-- links -->
         <navigation-case>
             <from-outcome>myDeals</from-outcome>
-            <to-view-id>/my_deals.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_deals.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>myOrders</from-outcome>
-            <to-view-id>/my_orders.xhtml</to-view-id>
+            <to-view-id>/pages/order/my_orders.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>settings</from-outcome>
-            <to-view-id>/settings.xhtml</to-view-id>
+            <to-view-id>/pages/user/settings.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>profile</from-outcome>
-            <to-view-id>/profile.xhtml</to-view-id>
+            <to-view-id>/pages/user/profile.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>searchProduct</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/search_products.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>myProducts</from-outcome>
-            <to-view-id>/my_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_products.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
     <!-- VIEW PRODUCT -->
     <navigation-rule>
-        <from-view-id>/view_product.xhtml</from-view-id>
+        <from-view-id>/pages/product/view_product.xhtml</from-view-id>
 
         <!-- add product to order -->
         <navigation-case>
             <from-action>#{productBean.addProductToOrder}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/view_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/view_product.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{productBean.addProductToOrder}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/view_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/view_product.xhtml</to-view-id>
         </navigation-case>
 
         <!-- redirect to update product page -->
         <navigation-case>
             <from-outcome>redirectToUpdateProductPage</from-outcome>
-            <to-view-id>/edit_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/edit_product.xhtml</to-view-id>
         </navigation-case>
 
         <!-- logout -->
         <navigation-case>
             <from-action>#{userBean.logout}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/authorization.xhtml</to-view-id>
+            <to-view-id>/pages/user/authorization.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{userBean.logout}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/view_product.xhtml</to-view-id>
+            <to-view-id>/pages/product/view_product.xhtml</to-view-id>
         </navigation-case>
 
         <!-- links -->
         <navigation-case>
             <from-outcome>myDeals</from-outcome>
-            <to-view-id>/my_deals.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_deals.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>myOrders</from-outcome>
-            <to-view-id>/my_orders.xhtml</to-view-id>
+            <to-view-id>/pages/order/my_orders.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>settings</from-outcome>
-            <to-view-id>/settings.xhtml</to-view-id>
+            <to-view-id>/pages/user/settings.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>profile</from-outcome>
-            <to-view-id>/profile.xhtml</to-view-id>
+            <to-view-id>/pages/user/profile.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>searchProduct</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/search_products.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>myProducts</from-outcome>
-            <to-view-id>/my_products.xhtml</to-view-id>
+            <to-view-id>/pages/product/my_products.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 

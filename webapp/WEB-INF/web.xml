@@ -30,7 +30,7 @@
     </context-param>
 
     <welcome-file-list>
-        <welcome-file>authorization.xhtml</welcome-file>
+        <welcome-file>/pages/user/authorization.xhtml</welcome-file>
     </welcome-file-list>
 
 </web-app>
