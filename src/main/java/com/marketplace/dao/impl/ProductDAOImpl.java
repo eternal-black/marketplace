@@ -5,7 +5,7 @@ import com.marketplace.domain.Order;
 import com.marketplace.domain.Product;
 import com.marketplace.domain.User;
 import com.marketplace.domain.enums.OrderStatus;
-import com.marketplace.util.HibernateUtil;
+import com.marketplace.util.SessionFactoryBuilder;
 import com.marketplace.util.SearchCriteria;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -18,7 +18,7 @@ import java.util.List;
 public class ProductDAOImpl implements ProductDAO {
 
     public void addProductToOrder(Product product, User user) throws SQLException {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         Order order = new Order();
         try {
             session.beginTransaction();
@@ -45,7 +45,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     public List<Product> getProductsByUser(User user) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         List<Product> products = null;
 
         try {
@@ -67,7 +67,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     public List<String> getProductCategories() throws SQLException {
         List<String> categories = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             Query query= session.createQuery("select name from Category");
@@ -82,7 +82,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     public List<Product> getProducts(SearchCriteria searchCriteria) throws SQLException {
         List<Product> products = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
 
         try {
             session.beginTransaction();
@@ -113,7 +113,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     public Product getProduct(int id) throws SQLException {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         Product product = new Product();
         try {
             Criteria criteria = session.createCriteria(Product.class);
@@ -128,7 +128,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     public void addProduct(Product product, User user) throws SQLException {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
 
@@ -147,7 +147,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     public void updateProduct(Product product) throws SQLException {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.update(product);
@@ -160,7 +160,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     public void deleteProduct(Product product) throws SQLException {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.delete(product);

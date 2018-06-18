@@ -5,7 +5,7 @@ import com.marketplace.domain.Order;
 import com.marketplace.domain.Product;
 import com.marketplace.domain.User;
 import com.marketplace.domain.enums.OrderStatus;
-import com.marketplace.util.HibernateUtil;
+import com.marketplace.util.SessionFactoryBuilder;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -15,7 +15,7 @@ import java.util.List;
 public class OrderDAOImpl implements OrderDAO {
 
     public void updateOrder(Order order) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.update(order);
@@ -28,7 +28,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     public void closeOrder(Order order) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         order.setStatus(OrderStatus.INACTIVE);
         try {
             session.beginTransaction();
@@ -42,7 +42,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     public void deleteOrder(Order order) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.delete(order);
@@ -55,7 +55,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     public Order getOrder(int id) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         Order order = new Order();
         try {
             Criteria criteria = session.createCriteria(Order.class);
@@ -71,7 +71,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     public List<Order> getOrders(Product product) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         List<Order> orders = null;
 
         try {
@@ -92,7 +92,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     public List<Order> getOrders(User user) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         List<Order> orders = null;
 
         try {
@@ -113,7 +113,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     public void add(User user, Order order) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
 

@@ -2,7 +2,7 @@ package com.marketplace.dao.impl;
 
 import com.marketplace.dao.AddressDAO;
 import com.marketplace.domain.Address;
-import com.marketplace.util.HibernateUtil;
+import com.marketplace.util.SessionFactoryBuilder;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -13,7 +13,7 @@ import java.util.List;
 public class AddressDAOImpl implements AddressDAO {
 
     public void addAddress(Address address) throws SQLException {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
 
         try {
             session.beginTransaction();
@@ -28,7 +28,7 @@ public class AddressDAOImpl implements AddressDAO {
     }
 
     public Address getAddress(int id) throws SQLException {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         Address address = null;
         try {
             Criteria criteria = session.createCriteria(Address.class);

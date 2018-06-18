@@ -2,7 +2,7 @@ package com.marketplace.dao.impl;
 
 import com.marketplace.dao.UserDAO;
 import com.marketplace.domain.User;
-import com.marketplace.util.HibernateUtil;
+import com.marketplace.util.SessionFactoryBuilder;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -10,10 +10,10 @@ import org.hibernate.criterion.Restrictions;
 public class UserDAOImpl implements UserDAO {
 
     public User get(String login, String password) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         User user;
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = SessionFactoryBuilder.getSessionFactory().openSession();
             session.beginTransaction();
 
             Criteria criteria = session.createCriteria(User.class);
@@ -30,7 +30,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void add(User user) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.save(user);
@@ -44,7 +44,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void update(User user) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.update(user);
@@ -58,7 +58,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void delete(User user) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.delete(user);
