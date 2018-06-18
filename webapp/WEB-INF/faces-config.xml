@@ -49,53 +49,13 @@
         <navigation-case>
             <from-action>#{userBean.registration}</from-action>
             <from-outcome>fail</from-outcome>
-            <to-view-id>/authorization.xhtml</to-view-id>
+            <to-view-id>/registration.xhtml</to-view-id>
         </navigation-case>
 
         <!-- forward -->
         <navigation-case>
-            <from-outcome>myDeals</from-outcome>
-            <to-view-id>/my_deals.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>myOrders</from-outcome>
-            <to-view-id>/my_orders.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>authorization</from-outcome>
             <to-view-id>/authorization.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>registration</from-outcome>
-            <to-view-id>/registration.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>settings</from-outcome>
-            <to-view-id>/settings.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>profile</from-outcome>
-            <to-view-id>/profile.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>editProduct</from-outcome>
-            <to-view-id>/edit_product.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>viewProduct</from-outcome>
-            <to-view-id>/view_product.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>searchProduct</from-outcome>
-            <to-view-id>/search_products.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>order</from-outcome>
-            <to-view-id>/order.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>myProducts</from-outcome>
-            <to-view-id>/my_products.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
