@@ -16,8 +16,6 @@ public class OrderServiceImpl implements OrderService {
     public void update(Order order) {
         try {
             orderDAO.update(order);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -26,8 +24,6 @@ public class OrderServiceImpl implements OrderService {
     public void close(Order order) {
         try {
             orderDAO.close(order);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,8 +32,6 @@ public class OrderServiceImpl implements OrderService {
     public void delete(Order order) {
         try {
             orderDAO.delete(order);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,8 +40,6 @@ public class OrderServiceImpl implements OrderService {
     public Order get(int id) {
         try {
             return orderDAO.get(id);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,8 +49,6 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getOrders(User user) {
         try {
             return orderDAO.getOrders(user);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }

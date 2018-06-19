@@ -56,7 +56,7 @@ public class OrderDAOImpl implements OrderDAO {
 
     public Order get(int id) throws Exception {
         Session session = SessionFactoryBuilder.getSessionFactory().openSession();
-        Order order = new Order();
+        Order order = null;
         try {
             Criteria criteria = session.createCriteria(Order.class);
             criteria.setMaxResults(1);
