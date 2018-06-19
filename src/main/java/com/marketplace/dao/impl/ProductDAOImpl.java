@@ -19,7 +19,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     public Product getProduct(int id) throws SQLException {
         Session session = SessionFactoryBuilder.getSessionFactory().openSession();
-        Product product = new Product();
+        Product product = null;
         try {
             Criteria criteria = session.createCriteria(Product.class);
             criteria.setMaxResults(1);
@@ -172,5 +172,4 @@ public class ProductDAOImpl implements ProductDAO {
         session.close();
         return products;
     }
-
 }
