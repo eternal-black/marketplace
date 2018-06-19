@@ -25,21 +25,21 @@ public class ProductBean {
 
     @Getter @Setter private Product product;
 
-    @Getter @Setter private List<Product> productsOfCurrentUser;
-    @Getter @Setter private List<Product> productsOfSearch;
+    @Getter @Setter private List<Product> userProducts;
+    @Getter @Setter private List<Product> searchResults;
 
     @PostConstruct
     void init() {
         productService = new ProductServiceImpl();
         searchCriteria = new SearchCriteria();
 
-        productsOfCurrentUser = productService.getProductsByUser(sessionBean.getCurrentUser());
-        productsOfSearch = productService.getProducts(searchCriteria);
+        userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
+        searchResults = productService.getProducts(searchCriteria);
     }
 
     public String searchProductsByCriteria(){
         try {
-            productsOfSearch = productService.getProducts(searchCriteria);
+            searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -60,8 +60,8 @@ public class ProductBean {
     public String addProduct(){
         try {
             productService.addProduct(product, sessionBean.getCurrentUser());
-            productsOfCurrentUser = productService.getProductsByUser(sessionBean.getCurrentUser());
-            productsOfSearch = productService.getProducts(searchCriteria);
+            userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
+            searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -72,8 +72,8 @@ public class ProductBean {
     public String updateProduct(){
         try {
             productService.updateProduct(product);
-            productsOfCurrentUser = productService.getProductsByUser(sessionBean.getCurrentUser());
-            productsOfSearch = productService.getProducts(searchCriteria);
+            userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
+            searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -84,8 +84,8 @@ public class ProductBean {
     public String deleteProduct(){
         try {
             productService.deleteProduct(product);
-            productsOfCurrentUser = productService.getProductsByUser(sessionBean.getCurrentUser());
-            productsOfSearch = productService.getProducts(searchCriteria);
+            userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
+            searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";

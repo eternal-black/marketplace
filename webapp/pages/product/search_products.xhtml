@@ -71,7 +71,7 @@
             </h:panelGrid>
             <br/>
 
-            <p:dataGrid var="prod" value="#{productBean.productsOfSearch}" columns="3" layout="grid">
+            <p:dataGrid var="prod" value="#{productBean.searchResults}" columns="3" layout="grid">
                 <h:panelGrid columns="2" style="border-style: solid;
                                                 border-width: 1px;
                                                 border-color: black;">
@@ -79,7 +79,7 @@
 
                     <h:panelGrid columns="2">
                         <h:outputLabel value="#{msg['seller.label']}"/>
-                        <h:outputLabel value="Pirat Jack Roberts"/>
+                        <h:outputLabel value="#{prod.user.firstName} #{prod.user.lastName}"/>
 
                         <h:outputLabel value="#{msg['name.label']}"/>
                         <h:outputLabel value="#{prod.name}"/>
