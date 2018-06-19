@@ -7,10 +7,11 @@ import java.util.List;
 
 public interface OrderService {
 
-    public void updateOrder(Order order);
-    public void closeOrder(Order order);
-    public void deleteOrder(Order order);
-    public Order getOrder(int id);
-    public List<Order> getOrders(User user);
-    public void add(User user, Order order);
+    List<Order> getOrders(User user);
+
+    Order get(int id);
+    void add(User user, Order order);
+    void update(Order order);
+    void close(Order order);
+    void delete(Order order);
 }

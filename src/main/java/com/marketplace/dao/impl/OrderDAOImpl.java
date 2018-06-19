@@ -14,7 +14,7 @@ import java.util.List;
 
 public class OrderDAOImpl implements OrderDAO {
 
-    public void updateOrder(Order order) throws Exception {
+    public void update(Order order) throws Exception {
         Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
@@ -27,7 +27,7 @@ public class OrderDAOImpl implements OrderDAO {
         session.close();
     }
 
-    public void closeOrder(Order order) throws Exception {
+    public void close(Order order) throws Exception {
         Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         order.setStatus(OrderStatus.INACTIVE);
         try {
@@ -41,7 +41,7 @@ public class OrderDAOImpl implements OrderDAO {
         session.close();
     }
 
-    public void deleteOrder(Order order) throws Exception {
+    public void delete(Order order) throws Exception {
         Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         try {
             session.beginTransaction();
@@ -54,7 +54,7 @@ public class OrderDAOImpl implements OrderDAO {
         session.close();
     }
 
-    public Order getOrder(int id) throws Exception {
+    public Order get(int id) throws Exception {
         Session session = SessionFactoryBuilder.getSessionFactory().openSession();
         Order order = new Order();
         try {
@@ -130,5 +130,5 @@ public class OrderDAOImpl implements OrderDAO {
         session.close();
     }
 
-    public void updateOrder(User user, Order order) throws Exception {}
+    public void update(User user, Order order) throws Exception {}
 }

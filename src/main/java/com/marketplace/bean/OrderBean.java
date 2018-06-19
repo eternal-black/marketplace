@@ -26,11 +26,11 @@ public class OrderBean {
     @Getter @Setter private User currentUser = DBUtil.getUser("lil", "123");
 
     @Getter @Setter private List<Order> orders = orderService.getOrders(currentUser);
-    @Getter @Setter private Order order = orderService.getOrder(1);
+    @Getter @Setter private Order order = orderService.get(1);
 
     public String updateOrder(){
         try {
-            orderService.updateOrder(order);
+            orderService.update(order);
             this.orders = orderService.getOrders(currentUser);
         } catch (Exception e) {
             e.printStackTrace();
@@ -41,7 +41,7 @@ public class OrderBean {
 
     public String closeOrder(){
         try {
-            orderService.closeOrder(order);
+            orderService.close(order);
             this.orders = orderService.getOrders(currentUser);
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class OrderBean {
 
     public String deleteOrder(){
         try {
-            orderService.deleteOrder(order);
+            orderService.delete(order);
             this.orders = orderService.getOrders(currentUser);
         } catch (Exception e) {
             e.printStackTrace();

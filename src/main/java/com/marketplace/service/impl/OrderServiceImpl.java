@@ -13,9 +13,9 @@ public class OrderServiceImpl implements OrderService {
 
     private OrderDAO orderDAO = new OrderDAOImpl();
 
-    public void updateOrder(Order order) {
+    public void update(Order order) {
         try {
-            orderDAO.updateOrder(order);
+            orderDAO.update(order);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -23,9 +23,9 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-    public void closeOrder(Order order) {
+    public void close(Order order) {
         try {
-            orderDAO.closeOrder(order);
+            orderDAO.close(order);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -33,9 +33,9 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-    public void deleteOrder(Order order) {
+    public void delete(Order order) {
         try {
-            orderDAO.deleteOrder(order);
+            orderDAO.delete(order);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -43,9 +43,9 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-    public Order getOrder(int id) {
+    public Order get(int id) {
         try {
-            return orderDAO.getOrder(id);
+            return orderDAO.get(id);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {

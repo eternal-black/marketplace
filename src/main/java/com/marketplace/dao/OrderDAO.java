@@ -8,11 +8,12 @@ import java.util.List;
 
 public interface OrderDAO {
 
-    Order getOrder(int id) throws Exception;
     List<Order> getOrders(User user) throws Exception;
     List<Order> getOrders(Product product) throws Exception;
+
+    Order get(int id) throws Exception;
     void add(User user, Order order) throws Exception;
-    void updateOrder(Order order) throws Exception;
-    void deleteOrder(Order order) throws Exception;
-    void closeOrder(Order order) throws Exception;
+    void update(Order order) throws Exception;
+    void delete(Order order) throws Exception;
+    void close(Order order) throws Exception;
 }
