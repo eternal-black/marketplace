@@ -33,8 +33,12 @@ public class ProductBean {
         productService = new ProductServiceImpl();
         searchCriteria = new SearchCriteria();
 
-        userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
-        searchResults = productService.getProducts(searchCriteria);
+        try {
+            userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
+            searchResults = productService.getProducts(searchCriteria);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String searchProductsByCriteria(){
@@ -49,7 +53,7 @@ public class ProductBean {
 
     public String addProductToOrder(){
         try {
-            productService.addProductToOrder(product, sessionBean.getCurrentUser());
+            productService.addToOrder(product, sessionBean.getCurrentUser());
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -59,7 +63,7 @@ public class ProductBean {
 
     public String addProduct(){
         try {
-            productService.addProduct(product, sessionBean.getCurrentUser());
+            productService.add(product, sessionBean.getCurrentUser());
             userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
             searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
@@ -71,7 +75,7 @@ public class ProductBean {
 
     public String updateProduct(){
         try {
-            productService.updateProduct(product);
+            productService.update(product);
             userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
             searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
@@ -83,7 +87,7 @@ public class ProductBean {
 
     public String deleteProduct(){
         try {
-            productService.deleteProduct(product);
+            productService.delete(product);
             userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
             searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
@@ -98,6 +102,11 @@ public class ProductBean {
     }
 
     public List<String> getCategories(){
-        return productService.getProductCategories();
+        try {
+            return productService.getCategories();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

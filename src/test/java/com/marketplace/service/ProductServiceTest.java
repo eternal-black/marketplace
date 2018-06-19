@@ -19,26 +19,26 @@ public class ProductServiceTest {
     @Test
     public void getProduct() throws Exception {
         String name = "osx1";
-        Product product = productService.getProduct(1);
+        Product product = productService.get(1);
         Assert.assertEquals(product.getName(), name);
     }
 
     @Test
     public void updateProduct() throws Exception {
         String name = "c4";
-        Product product = productService.getProduct(2);
+        Product product = productService.get(2);
         product.setName(name);
         Assert.assertEquals(product.getName(), name);
     }
 
     @Test
     public void deleteProduct() throws Exception {
-        Product product = productService.getProduct(3);
-        productService.deleteProduct(product);
+        Product product = productService.get(3);
+        productService.delete(product);
 
         product = null;
         try {
-            product = productService.getProduct(3);
+            product = productService.get(3);
         } catch (Exception e) {}
         Assert.assertNull(product);
     }
@@ -55,9 +55,9 @@ public class ProductServiceTest {
         product.setStatus(ProductStatus.ACTIVE);
 
         User user = userService.get("mel", "123");
-        productService.addProduct(product, user);
+        productService.add(product, user);
 
-        product = productService.getProduct(4);
+        product = productService.get(4);
         Assert.assertEquals(product.getName(), "tnt");
     }
 
@@ -77,7 +77,7 @@ public class ProductServiceTest {
 
     @Test
     public void getProductCategories() throws Exception {
-        List<String> categories = productService.getProductCategories();
+        List<String> categories = productService.getCategories();
         Assert.assertEquals(categories.size(), 2);
     }
 }

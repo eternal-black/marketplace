@@ -16,71 +16,35 @@ public class ProductServiceImpl implements ProductService {
     public ProductServiceImpl() {
     }
 
-    public List<Product> getProductsByUser(User user) {
-        try {
-            return productDAO.getProductsByUser(user);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public List<Product> getProductsByUser(User user) throws Exception {
+        return productDAO.getProductsByUser(user);
     }
 
-    public List<String> getProductCategories() {
-        try {
-            return productDAO.getProductCategories();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public List<String> getCategories() throws Exception {
+        return productDAO.getCategories();
     }
 
-    public List<Product> getProducts(SearchCriteria criteria) {
-        try {
-            return productDAO.getProducts(criteria);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public List<Product> getProducts(SearchCriteria criteria) throws Exception {
+        return productDAO.getProducts(criteria);
     }
 
-    public void addProductToOrder(Product product, User user) {
-        try {
-            productDAO.addProductToOrder(product, user);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void addToOrder(Product product, User user) throws Exception {
+        productDAO.addToOrder(product, user);
     }
 
-    public void addProduct(Product product, User user) {
-        try {
-            productDAO.addProduct(product, user);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void add(Product product, User user) throws Exception {
+        productDAO.add(product, user);
     }
 
-    public void updateProduct(Product product) {
-        try {
-            productDAO.updateProduct(product);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void update(Product product) throws Exception {
+        productDAO.update(product);
     }
 
-    public void deleteProduct(Product product) {
-        try {
-            productDAO.deleteProduct(product);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void delete(Product product) throws Exception {
+        productDAO.delete(product);
     }
 
-    public Product getProduct(int id) {
-        try {
-            return productDAO.getProduct(id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public Product get(int id) throws Exception {
+        return productDAO.get(id);
     }
 }
