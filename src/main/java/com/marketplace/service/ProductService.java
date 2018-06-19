@@ -14,7 +14,6 @@ public interface ProductService {
     void updateProduct(Product product);
     void deleteProduct(Product product);
 
-    List<Product> getDeals(User user);
     List<Product> getProductsByUser(User user);
     List<String> getProductCategories();
     List<Product> getProducts(SearchCriteria criteria);

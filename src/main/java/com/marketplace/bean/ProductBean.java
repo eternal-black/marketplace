@@ -27,7 +27,6 @@ public class ProductBean {
 
     @Getter @Setter private List<Product> productsOfCurrentUser;
     @Getter @Setter private List<Product> productsOfSearch;
-    @Getter @Setter private List<Product> deals;
 
     @PostConstruct
     void init() {
@@ -36,7 +35,6 @@ public class ProductBean {
 
         productsOfCurrentUser = productService.getProductsByUser(sessionBean.getCurrentUser());
         productsOfSearch = productService.getProducts(searchCriteria);
-        deals = productService.getDeals(sessionBean.getCurrentUser());
     }
 
     public String searchProductsByCriteria(){

@@ -16,15 +16,6 @@ public class ProductServiceImpl implements ProductService {
     public ProductServiceImpl() {
     }
 
-    public List<Product> getDeals(User user) {
-        try {
-            return productDAO.getProductsByUser(user);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public List<Product> getProductsByUser(User user) {
         try {
             return productDAO.getProductsByUser(user);
