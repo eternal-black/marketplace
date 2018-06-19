@@ -20,6 +20,12 @@
             <to-view-id>/pages/product/search_products.xhtml</to-view-id>
         </navigation-case>
 
+        <!-- view product -->
+        <navigation-case>
+            <from-outcome>viewProduct</from-outcome>
+            <to-view-id>/pages/product/view_product.xhtml</to-view-id>
+        </navigation-case>
+
         <!-- search products by criteria -->
         <navigation-case>
             <from-action>#{productBean.searchProductsByCriteria}</from-action>
