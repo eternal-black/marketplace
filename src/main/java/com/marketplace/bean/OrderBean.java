@@ -38,7 +38,6 @@ public class OrderBean {
     public String updateOrder(){
         try {
             orderService.update(sessionBean.getOrder());
-            userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -49,7 +48,6 @@ public class OrderBean {
     public String closeOrder(){
         try {
             orderService.close(sessionBean.getOrder());
-            userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -76,7 +74,6 @@ public class OrderBean {
             order.setBuyingDate(new Date());
 
             orderService.add(sessionBean.getCurrentUser(), order);
-            userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         }catch (Exception e){
             return "fail";
         }

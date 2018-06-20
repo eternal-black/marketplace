@@ -20,6 +20,18 @@
             <to-view-id>/pages/my_orders.xhtml</to-view-id>
         </navigation-case>
 
+        <!-- delete order -->
+        <navigation-case>
+            <from-action>#{orderBean.deleteOrder}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/my_orders.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{orderBean.deleteOrder}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/pages/my_orders.xhtml</to-view-id>
+        </navigation-case>
+
         <!-- close order -->
         <navigation-case>
             <from-action>#{orderBean.closeOrder}</from-action>

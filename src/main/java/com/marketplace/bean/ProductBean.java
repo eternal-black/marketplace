@@ -1,9 +1,7 @@
 package com.marketplace.bean;
 
 import com.marketplace.domain.Product;
-import com.marketplace.service.OrderService;
 import com.marketplace.service.ProductService;
-import com.marketplace.service.impl.OrderServiceImpl;
 import com.marketplace.service.impl.ProductServiceImpl;
 import com.marketplace.util.SearchCriteria;
 import lombok.Getter;
@@ -22,12 +20,6 @@ public class ProductBean {
     @ManagedProperty(value = "#{sessionBean}")
     @Getter @Setter private SessionBean sessionBean;
 
-    // TODO: remove
-    @ManagedProperty(value = "#{orderBean}")
-    @Getter @Setter private OrderBean orderBean;
-    @Getter @Setter private OrderService orderService;
-
-
     @Getter @Setter private ProductService productService;
     @Getter @Setter private SearchCriteria searchCriteria;
 
@@ -38,7 +30,6 @@ public class ProductBean {
     void init() {
         productService = new ProductServiceImpl();
         searchCriteria = new SearchCriteria();
-        orderService = new OrderServiceImpl();
 
         try {
             userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
@@ -61,7 +52,6 @@ public class ProductBean {
     public String addProductToOrder(){
         try {
             productService.addToOrder(sessionBean.getProduct(), sessionBean.getCurrentUser());
-            orderBean.setUserOrders(orderService.getOrders(sessionBean.getCurrentUser()));
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -72,8 +62,6 @@ public class ProductBean {
     public String addProduct(){
         try {
             productService.add(sessionBean.getProduct(), sessionBean.getCurrentUser());
-            userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
-            searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -84,8 +72,6 @@ public class ProductBean {
     public String updateProduct(){
         try {
             productService.update(sessionBean.getProduct());
-            userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
-            searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -97,7 +83,6 @@ public class ProductBean {
         try {
             productService.delete(sessionBean.getProduct());
             userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
-            searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
