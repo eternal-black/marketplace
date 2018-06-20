@@ -60,18 +60,4 @@ public class OrderBean {
         }
         return "success";
     }
-
-    public String addOrder(){
-        try {
-            Order order = new Order();
-            order.setStatus(OrderStatus.ACTIVE);
-            order.setDeliveryDate(new Date());
-            order.setBuyingDate(new Date());
-
-            orderService.add(sessionBean.getCurrentUser(), order);
-        }catch (Exception e){
-            return "fail";
-        }
-        return "success";
-    }
 }

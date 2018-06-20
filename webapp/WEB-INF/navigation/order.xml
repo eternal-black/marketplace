@@ -8,18 +8,6 @@
     <navigation-rule>
         <from-view-id>/pages/my_orders.xhtml</from-view-id>
 
-        <!-- add order -->
-        <navigation-case>
-            <from-action>#{orderBean.addOrder}</from-action>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/pages/my_orders.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-action>#{orderBean.addOrder}</from-action>
-            <from-outcome>fail</from-outcome>
-            <to-view-id>/pages/my_orders.xhtml</to-view-id>
-        </navigation-case>
-
         <!-- delete order -->
         <navigation-case>
             <from-action>#{orderBean.deleteOrder}</from-action>

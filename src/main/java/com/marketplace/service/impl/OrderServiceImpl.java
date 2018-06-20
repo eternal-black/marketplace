@@ -31,8 +31,4 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getOrders(User user) throws Exception {
         return orderDAO.getOrders(user);
     }
-
-    public void add(User user, Order order) throws Exception {
-        orderDAO.add(user, order);
-    }
 }

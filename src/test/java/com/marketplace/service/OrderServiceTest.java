@@ -34,23 +34,6 @@ public class OrderServiceTest {
     }
 
     @Test
-    public void add() throws Exception {
-        Product product = productService.get(1);
-
-        Order order = new Order();
-        order.setProduct(product);
-        order.setDeliveryDate(new Date());
-        order.setBuyingDate(new Date());
-        order.setStatus(OrderStatus.ACTIVE);
-
-        User user = userService.get("mel", "123");
-        orderService.add(user, order);
-
-        List<Order> orders = orderService.getOrders(user);
-        Assert.assertEquals(orders.size(), 2);
-    }
-
-    @Test
     public void update() throws Exception {
         Order order = orderService.get(17);
         order.setStatus(OrderStatus.INACTIVE);

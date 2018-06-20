@@ -12,7 +12,6 @@ public interface OrderDAO {
     List<Order> getOrders(Product product) throws Exception;
 
     Order get(int id) throws Exception;
-    void add(User user, Order order) throws Exception;
     void update(Order order) throws Exception;
     void delete(Order order) throws Exception;
     void close(Order order) throws Exception;

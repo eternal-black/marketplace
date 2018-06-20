@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
+import java.util.Date;
 import java.util.List;
 
 public class ProductDAOImpl implements ProductDAO {
@@ -42,7 +43,8 @@ public class ProductDAOImpl implements ProductDAO {
             order.setStatus(OrderStatus.ACTIVE);
             order.setUser(user);
             order.setProduct(product);
-
+            order.setDeliveryDate(new Date());
+            order.setBuyingDate(new Date());
 
             user.getOrders().add(order);
             session.update(user);

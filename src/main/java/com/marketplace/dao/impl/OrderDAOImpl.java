@@ -112,23 +112,5 @@ public class OrderDAOImpl implements OrderDAO {
         return orders;
     }
 
-    public void add(User user, Order order) throws Exception {
-        Session session = SessionFactoryBuilder.getSessionFactory().openSession();
-        try {
-            session.beginTransaction();
-
-            user = (User) session.get(User.class, user.getId());
-            order.setUser(user);
-            user.getOrders().add(order);
-
-            session.update(user);
-            session.getTransaction().commit();
-        } catch (Exception e){
-            session.getTransaction().rollback();
-            e.printStackTrace();
-        }
-        session.close();
-    }
-
     public void update(User user, Order order) throws Exception {}
 }
