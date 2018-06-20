@@ -8,10 +8,10 @@ import lombok.Setter;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 @ManagedBean (name = "userBean")
-@SessionScoped
+@RequestScoped
 public class UserBean {
 
     @ManagedProperty(value = "#{sessionBean}")

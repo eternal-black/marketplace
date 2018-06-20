@@ -32,13 +32,13 @@
                             <h:graphicImage library="images" name="order.png"/>
                             <h:panelGrid columns="2">
                                 <h:outputLabel value="#{msg['buyingDate.label']}"/>
-                                <h:outputLabel value="#{orderBean.order.buyingDate}"/>
+                                <h:outputLabel value="#{sessionBean.order.buyingDate}"/>
 
                                 <h:outputLabel value="#{msg['deliveryDate.label']}"/>
-                                <h:outputLabel value="#{orderBean.order.deliveryDate}"/>
+                                <h:outputLabel value="#{sessionBean.order.deliveryDate}"/>
 
                                 <h:outputLabel value="#{msg['status.label']}"/>
-                                <h:outputLabel value="#{orderBean.order.status}"/>
+                                <h:outputLabel value="#{sessionBean.order.status}"/>
                             </h:panelGrid>
                         </h:panelGrid>
 
@@ -46,19 +46,19 @@
                             <h:graphicImage library="images" name="product.png"/>
                             <h:panelGrid columns="2">
                                 <h:outputLabel value="#{msg['name.label']}"/>
-                                <h:outputLabel value="#{orderBean.order.product.name}"/>
+                                <h:outputLabel value="#{sessionBean.order.product.name}"/>
 
                                 <h:outputLabel value="#{msg['description.label']}"/>
-                                <h:outputLabel value="#{orderBean.order.product.description}"/>
+                                <h:outputLabel value="#{sessionBean.order.product.description}"/>
 
                                 <h:outputLabel value="#{msg['cost.label']}"/>
-                                <h:outputLabel value="#{orderBean.order.product.cost}"/>
+                                <h:outputLabel value="#{sessionBean.order.product.cost}"/>
 
                                 <h:outputLabel value="#{msg['count.label']}"/>
-                                <h:outputLabel value="#{orderBean.order.product.count}"/>
+                                <h:outputLabel value="#{sessionBean.order.product.count}"/>
 
                                 <h:outputLabel value="#{msg['rating.label']}"/>
-                                <h:outputLabel value="#{orderBean.order.product.rating}"/>
+                                <h:outputLabel value="#{sessionBean.order.product.rating}"/>
                             </h:panelGrid>
                         </h:panelGrid>
 
@@ -66,10 +66,10 @@
                             <h:graphicImage library="images" name="dealer.png"/>
                             <h:panelGrid columns="2">
                                 <h:outputLabel value="#{msg['firstName.label']}"/>
-                                <h:outputText value="#{orderBean.order.product.user.firstName}"/>
+                                <h:outputText value="#{sessionBean.order.product.user.firstName}"/>
 
                                 <h:outputLabel value="#{msg['lastName.label']}"/>
-                                <h:outputText value="#{orderBean.order.product.user.lastName}"/>
+                                <h:outputText value="#{sessionBean.order.product.user.lastName}"/>
                             </h:panelGrid>
                         </h:panelGrid>
 

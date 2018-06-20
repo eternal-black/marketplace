@@ -10,12 +10,12 @@ import lombok.Setter;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import java.util.Date;
 import java.util.List;
 
 @ManagedBean(name = "orderBean")
-@SessionScoped
+@RequestScoped
 public class OrderBean {
 
     @ManagedProperty(value = "#{sessionBean}")
@@ -23,7 +23,6 @@ public class OrderBean {
 
     @Getter @Setter private OrderService orderService;
 
-    @Getter @Setter private Order order;
     @Getter @Setter private List<Order> userOrders;
 
     @PostConstruct
@@ -38,7 +37,7 @@ public class OrderBean {
 
     public String updateOrder(){
         try {
-            orderService.update(order);
+            orderService.update(sessionBean.getOrder());
             userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,7 +48,7 @@ public class OrderBean {
 
     public String closeOrder(){
         try {
-            orderService.close(order);
+            orderService.close(sessionBean.getOrder());
             userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,7 +59,7 @@ public class OrderBean {
 
     public String deleteOrder(){
         try {
-            orderService.delete(order);
+            orderService.delete(sessionBean.getOrder());
             userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         } catch (Exception e) {
             e.printStackTrace();

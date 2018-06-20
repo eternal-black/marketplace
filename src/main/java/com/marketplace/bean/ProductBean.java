@@ -12,11 +12,11 @@ import lombok.Setter;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import java.util.List;
 
 @ManagedBean(name = "productBean")
-@SessionScoped
+@RequestScoped
 public class ProductBean {
 
     @ManagedProperty(value = "#{sessionBean}")
@@ -30,8 +30,6 @@ public class ProductBean {
 
     @Getter @Setter private ProductService productService;
     @Getter @Setter private SearchCriteria searchCriteria;
-
-    @Getter @Setter private Product product;
 
     @Getter @Setter private List<Product> userProducts;
     @Getter @Setter private List<Product> searchResults;
@@ -62,7 +60,7 @@ public class ProductBean {
 
     public String addProductToOrder(){
         try {
-            productService.addToOrder(product, sessionBean.getCurrentUser());
+            productService.addToOrder(sessionBean.getProduct(), sessionBean.getCurrentUser());
             orderBean.setUserOrders(orderService.getOrders(sessionBean.getCurrentUser()));
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,7 +71,7 @@ public class ProductBean {
 
     public String addProduct(){
         try {
-            productService.add(product, sessionBean.getCurrentUser());
+            productService.add(sessionBean.getProduct(), sessionBean.getCurrentUser());
             userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
             searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
@@ -85,7 +83,7 @@ public class ProductBean {
 
     public String updateProduct(){
         try {
-            productService.update(product);
+            productService.update(sessionBean.getProduct());
             userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
             searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
@@ -97,7 +95,7 @@ public class ProductBean {
 
     public String deleteProduct(){
         try {
-            productService.delete(product);
+            productService.delete(sessionBean.getProduct());
             userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
             searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
