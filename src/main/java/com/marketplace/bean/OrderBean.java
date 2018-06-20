@@ -1,15 +1,15 @@
 package com.marketplace.bean;
 
 import com.marketplace.domain.Order;
-import com.marketplace.domain.User;
 import com.marketplace.domain.enums.OrderStatus;
 import com.marketplace.service.OrderService;
 import com.marketplace.service.impl.OrderServiceImpl;
-import com.marketplace.util.DBUtil;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import java.util.Date;
 import java.util.List;
@@ -18,20 +18,24 @@ import java.util.List;
 @SessionScoped
 public class OrderBean {
 
-    @Getter @Setter
-    private OrderService orderService = new OrderServiceImpl();
+    @ManagedProperty(value = "#{sessionBean}")
+    @Getter @Setter private SessionBean sessionBean;
 
+    @Getter @Setter private OrderService orderService;
 
-    // @Getter @Setter private User currentUser = DBUtil.getUser("mel", "123");
-    @Getter @Setter private User currentUser = DBUtil.getUser("lil", "123");
+    @Getter @Setter private Order order;
+    @Getter @Setter private List<Order> userOrders;
 
-    @Getter @Setter private List<Order> orders = orderService.getOrders(currentUser);
-    @Getter @Setter private Order order = orderService.get(1);
+    @PostConstruct
+    void init() {
+        orderService = new OrderServiceImpl();
+        userOrders = orderService.getOrders(sessionBean.getCurrentUser());
+    }
 
     public String updateOrder(){
         try {
             orderService.update(order);
-            this.orders = orderService.getOrders(currentUser);
+            userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -42,7 +46,7 @@ public class OrderBean {
     public String closeOrder(){
         try {
             orderService.close(order);
-            this.orders = orderService.getOrders(currentUser);
+            userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -53,7 +57,7 @@ public class OrderBean {
     public String deleteOrder(){
         try {
             orderService.delete(order);
-            this.orders = orderService.getOrders(currentUser);
+            userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
@@ -67,9 +71,9 @@ public class OrderBean {
             order.setStatus(OrderStatus.ACTIVE);
             order.setDeliveryDate(new Date());
             order.setBuyingDate(new Date());
-            orderService.add(currentUser, order);
 
-            orders = orderService.getOrders(currentUser);
+            orderService.add(sessionBean.getCurrentUser(), order);
+            userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         }catch (Exception e){
             return "fail";
         }
