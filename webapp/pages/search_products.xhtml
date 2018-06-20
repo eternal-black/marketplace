@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{localeBean.localeCode}">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/layout.xhtml">
+            <ui:define name="content">
+
+                <f:facet name="last">
+                    <h:outputStylesheet library="css" name="primefaces_overrider.css" />
+                </f:facet>
+                <h:form>
+
+                    <h:panelGrid style="margin: auto">
+                        <h:outputLabel value="#{msg['searchProduct.label']}"/>
+                    </h:panelGrid>
+                    <br/>
+                    <br/>
+
+                    <h:panelGrid style="margin: auto">
+                        <h:outputLabel value="#{msg['categories.label']}"/>
+
+                        <ui:repeat var="category" value="#{productBean.getCategories()}">
+                            <h:commandLink value="#{category}"/>
+                            <br/>
+                        </ui:repeat>
+                    </h:panelGrid>
+                    <br/>
+
+                    <h:panelGrid columns="2" style="margin: auto">
+
+                        <h:outputLabel value="#{msg['searchName.label']}"/>
+                        <h:inputText value="#{productBean.searchCriteria.name}"/>
+
+                        <h:outputLabel value="#{msg['costFrom.label']}"/>
+                        <h:inputText value="#{productBean.searchCriteria.costFrom}"/>
+                        <h:outputLabel value="#{msg['costTo.label']}"/>
+                        <h:inputText value="#{productBean.searchCriteria.costTo}"/>
+
+                        <h:outputLabel value="#{msg['discountFrom.label']}"/>
+                        <h:inputText value="#{productBean.searchCriteria.discountFrom}"/>
+
+                        <h:outputLabel value="#{msg['ratingFrom.label']}"/>
+                        <h:inputText value="#{productBean.searchCriteria.ratingFrom}"/>
+
+                    </h:panelGrid>
+                    <br/>
+
+                    <h:panelGrid columns="1" style="margin: auto">
+                        <h:commandButton value="#{msg['search.button']}" action="#{productBean.searchProductsByCriteria}"/>
+                    </h:panelGrid>
+                    <br/>
+
+                    <p:dataGrid var="prod" value="#{productBean.searchResults}" columns="3" layout="grid">
+                        <h:panelGrid columns="2" style="border-style: solid;
+                                                        border-width: 1px;
+                                                        border-color: black;">
+                            <h:graphicImage library="images" name="product.png"/>
+
+                            <h:panelGrid columns="2">
+                                <h:outputLabel value="#{msg['seller.label']}"/>
+                                <h:outputLabel value="#{prod.user.firstName} #{prod.user.lastName}"/>
+
+                                <h:outputLabel value="#{msg['name.label']}"/>
+                                <h:outputLabel value="#{prod.name}"/>
+                                <h:outputLabel value="#{msg['description.label']}"/>
+                                <h:outputLabel value="#{prod.description}"/>
+                                <h:outputLabel value="#{msg['cost.label']}"/>
+                                <h:outputLabel value="#{prod.cost}"/>
+                                <h:outputLabel value="#{msg['discount.label']}"/>
+                                <h:outputLabel value="#{prod.discount}"/>
+                                <h:outputLabel value="#{msg['rating.label']}"/>
+                                <h:outputLabel value="#{prod.rating}"/>
+                            </h:panelGrid>
+
+                            <h:commandButton value="#{msg['addToOrder.button']}" action="#{productBean.addProductToOrder}">
+                                <f:setPropertyActionListener target="#{productBean.product}" value="#{prod}"/>
+                            </h:commandButton>
+                            <!--<h:commandButton value="#{msg['removeFromOrder.button']}" action="#{productBean.removeFromOrder}"/>-->
+                            <h:commandButton value="#{msg['view.button']}" action="viewProduct" immediate="true">
+                                <f:setPropertyActionListener target="#{productBean.product}" value="#{prod}"/>
+                            </h:commandButton>
+                        </h:panelGrid>
+
+                    </p:dataGrid>
+
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</f:view>
+</html>

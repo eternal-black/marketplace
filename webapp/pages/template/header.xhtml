@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:form>
+
+        <h:panelGrid columns="12" style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
+            <h:commandButton value="#{msg['profile.label']}" action="profile" immediate="true"/>
+            <h:commandButton value="#{msg['searchProduct.label']}" action="searchProduct" immediate="true"/>
+            <h:commandButton value="#{msg['myProducts.label']}" action="myProducts" immediate="true"/>
+            <h:commandButton value="#{msg['myOrders.label']}" action="myOrders" immediate="true"/>
+            <h:commandButton value="#{msg['myDeals.label']}" action="myDeals" immediate="true"/>
+            <h:commandButton value="#{msg['settings.label']}" action="settings" immediate="true"/>
+            <h:commandButton value="#{msg['logout.label']}" action="#{userBean.logout}"/>
+            <h:selectOneMenu value="#{localeBean.localeCode}" onchange="submit()"
+                             valueChangeListener="#{localeBean.countryLocaleCodeChanged}">
+                <f:selectItems value="#{localeBean.countries}" />
+            </h:selectOneMenu>
+        </h:panelGrid>
+        <br/>
+
+    </h:form>
+</html>
