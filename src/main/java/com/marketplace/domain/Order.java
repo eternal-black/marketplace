@@ -18,4 +18,11 @@ public class Order {
     @Getter @Setter private Product product;
 
     public Order() {}
+
+    public Order(Date buyingDate, OrderStatus status, User user, Product product) {
+        this.buyingDate = buyingDate;
+        this.status = status;
+        this.user = user;
+        this.product = product;
+    }
 }

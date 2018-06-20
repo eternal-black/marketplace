@@ -34,17 +34,13 @@ public class ProductDAOImpl implements ProductDAO {
 
     public void addToOrder(Product product, User user) throws Exception {
         Session session = SessionFactoryBuilder.getSessionFactory().openSession();
-        Order order = new Order();
+        Order order;
         try {
             session.beginTransaction();
 
             user = (User) session.get(User.class, user.getId());
+            order = new Order(new Date(), OrderStatus.ACTIVE, user, product);
             order.setId(0);
-            order.setStatus(OrderStatus.ACTIVE);
-            order.setUser(user);
-            order.setProduct(product);
-            order.setDeliveryDate(new Date());
-            order.setBuyingDate(new Date());
 
             user.getOrders().add(order);
             session.update(user);
