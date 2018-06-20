@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface OrderService {
 
-    List<Order> getOrders(User user);
+    List<Order> getOrders(User user) throws Exception;
 
-    Order get(int id);
-    void add(User user, Order order);
-    void update(Order order);
-    void close(Order order);
-    void delete(Order order);
+    Order get(int id) throws Exception;
+    void add(User user, Order order) throws Exception;
+    void update(Order order) throws Exception;
+    void close(Order order) throws Exception;
+    void delete(Order order) throws Exception;
 }

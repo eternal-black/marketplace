@@ -6,60 +6,33 @@ import com.marketplace.domain.Order;
 import com.marketplace.domain.User;
 import com.marketplace.service.OrderService;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class OrderServiceImpl implements OrderService {
 
     private OrderDAO orderDAO = new OrderDAOImpl();
 
-    public void update(Order order) {
-        try {
-            orderDAO.update(order);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void update(Order order) throws Exception {
+        orderDAO.update(order);
     }
 
-    public void close(Order order) {
-        try {
-            orderDAO.close(order);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void close(Order order) throws Exception {
+        orderDAO.close(order);
     }
 
-    public void delete(Order order) {
-        try {
-            orderDAO.delete(order);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void delete(Order order) throws Exception {
+        orderDAO.delete(order);
     }
 
-    public Order get(int id) {
-        try {
-            return orderDAO.get(id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public Order get(int id) throws Exception {
+        return orderDAO.get(id);
     }
 
-    public List<Order> getOrders(User user) {
-        try {
-            return orderDAO.getOrders(user);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public List<Order> getOrders(User user) throws Exception {
+        return orderDAO.getOrders(user);
     }
 
-    public void add(User user, Order order) {
-        try {
-            orderDAO.add(user, order);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void add(User user, Order order) throws Exception {
+        orderDAO.add(user, order);
     }
 }

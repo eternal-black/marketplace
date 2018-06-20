@@ -29,7 +29,11 @@ public class OrderBean {
     @PostConstruct
     void init() {
         orderService = new OrderServiceImpl();
-        userOrders = orderService.getOrders(sessionBean.getCurrentUser());
+        try {
+            userOrders = orderService.getOrders(sessionBean.getCurrentUser());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String updateOrder(){
