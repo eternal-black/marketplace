@@ -30,16 +30,13 @@ public class OrderBean {
         orderService = new OrderServiceImpl();
         try {
             userOrders = orderService.getOrders(sessionBean.getCurrentUser());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {}
     }
 
     public String updateOrder(){
         try {
             orderService.update(sessionBean.getOrder());
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";
@@ -49,7 +46,6 @@ public class OrderBean {
         try {
             orderService.close(sessionBean.getOrder());
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";
@@ -60,7 +56,6 @@ public class OrderBean {
             orderService.delete(sessionBean.getOrder());
             userOrders = orderService.getOrders(sessionBean.getCurrentUser());
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";

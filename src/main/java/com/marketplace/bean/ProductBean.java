@@ -34,16 +34,13 @@ public class ProductBean {
         try {
             userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
             searchResults = productService.getProducts(searchCriteria);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {}
     }
 
     public String searchProductsByCriteria(){
         try {
             searchResults = productService.getProducts(searchCriteria);
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";
@@ -53,7 +50,6 @@ public class ProductBean {
         try {
             productService.addToOrder(sessionBean.getProduct(), sessionBean.getCurrentUser());
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";
@@ -63,7 +59,6 @@ public class ProductBean {
         try {
             productService.add(sessionBean.getProduct(), sessionBean.getCurrentUser());
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";
@@ -73,7 +68,6 @@ public class ProductBean {
         try {
             productService.update(sessionBean.getProduct());
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";
@@ -84,7 +78,6 @@ public class ProductBean {
             productService.delete(sessionBean.getProduct());
             userProducts = productService.getProductsByUser(sessionBean.getCurrentUser());
         } catch (Exception e) {
-            e.printStackTrace();
             return "fail";
         }
         return "success";
@@ -97,9 +90,7 @@ public class ProductBean {
     public List<String> getCategories(){
         try {
             return productService.getCategories();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {}
         return null;
     }
 }
