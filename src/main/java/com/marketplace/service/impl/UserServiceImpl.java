@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void add(User user) throws Exception {
-        user.setPhoto(CommonUtil.generateAvatarNumber());
+        user.setPhoto(CommonUtil.generateImageNumber());
         userDAO.add(user);
     }
 

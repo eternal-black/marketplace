@@ -5,6 +5,7 @@ import com.marketplace.dao.impl.ProductDAOImpl;
 import com.marketplace.domain.Product;
 import com.marketplace.domain.User;
 import com.marketplace.service.ProductService;
+import com.marketplace.util.CommonUtil;
 import com.marketplace.util.SearchCriteria;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     public void add(Product product, User user) throws Exception {
+        product.setPhoto(CommonUtil.generateImageNumber());
         productDAO.add(product, user);
     }
 

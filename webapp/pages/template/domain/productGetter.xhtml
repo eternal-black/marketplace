@@ -8,7 +8,7 @@
 <f:view>
 
     <h:panelGrid style="margin: auto" columns="2">
-        <h:graphicImage library="images" name="product.png"/>
+        <h:graphicImage library="images" name="product/#{product.photo}.png"/>
         <h:panelGrid columns="2">
             <h:outputLabel value="#{msg['seller.label']}"/>
             <h:outputLabel value="#{product.user.firstName} #{product.user.lastName}"/>

@@ -13,6 +13,7 @@
         <property name="description" column="description"/>
         <property name="cost" column="cost"/>
         <property name="discount" column="discount"/>
+        <property name="photo" column="photo"/>
         <property name="count" column="count"/>
         <property name="rating" column="rating"/>
 

@@ -8,17 +8,14 @@
 <f:view>
 
     <h:panelGrid style="margin: auto" columns="2">
-        <h:graphicImage library="images" name="order.png"/>
-        <h:panelGrid columns="2">
-            <h:outputLabel value="#{msg['buyingDate.label']}"/>
-            <h:outputLabel value="#{order.buyingDate}"/>
+        <h:outputLabel value="#{msg['buyingDate.label']}"/>
+        <h:outputLabel value="#{order.buyingDate}"/>
 
-            <h:outputLabel value="#{msg['deliveryDate.label']}"/>
-            <h:outputLabel value="#{order.deliveryDate}"/>
+        <h:outputLabel value="#{msg['deliveryDate.label']}"/>
+        <h:outputLabel value="#{order.deliveryDate}"/>
 
-            <h:outputLabel value="#{msg['status.label']}"/>
-            <h:outputLabel value="#{order.status}"/>
-        </h:panelGrid>
+        <h:outputLabel value="#{msg['status.label']}"/>
+        <h:outputLabel value="#{order.status}"/>
     </h:panelGrid>
 
 </f:view>

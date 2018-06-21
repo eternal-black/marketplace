@@ -13,6 +13,7 @@ public class Product {
     @Getter @Setter private int id;
     @Getter @Setter private String name;
     @Getter @Setter private String description;
+    @Getter @Setter private String photo;
     @Getter @Setter private int cost;
     @Getter @Setter private int discount;
     @Getter @Setter private int count;
