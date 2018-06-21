@@ -13,31 +13,19 @@
     <h:body>
         <ui:composition template="template/layout.xhtml">
             <ui:define name="content">
-
                 <h:form>
 
                     <h:panelGrid style="margin: auto">
                         <h:outputLabel value="#{msg['myOrders.label']}"/>
                     </h:panelGrid>
-                    <br/>
-                    <br/>
+                    <br/><br/>
 
                     <c:forEach var="order" items="#{orderBean.userOrders}">
                         <h:panelGrid style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
 
-                            <h:panelGrid style="margin: auto" columns="2">
-                                <h:graphicImage library="images" name="order.png"/>
-                                <h:panelGrid columns="2">
-                                    <h:outputLabel value="#{msg['buyingDate.label']}"/>
-                                    <h:outputLabel value="#{order.buyingDate}"/>
-
-                                    <h:outputLabel value="#{msg['deliveryDate.label']}"/>
-                                    <h:outputLabel value="#{order.deliveryDate}"/>
-
-                                    <h:outputLabel value="#{msg['status.label']}"/>
-                                    <h:outputLabel value="#{order.status}"/>
-                                </h:panelGrid>
-                            </h:panelGrid>
+                            <ui:include src="template/domain/orderGetter.xhtml">
+                                <ui:param name="order" value="#{order}"/>
+                            </ui:include>
 
                             <h:panelGrid style="margin: auto" columns="4">
                                 <h:commandButton value="#{msg['view.button']}" action="viewOrder" immediate="true">
@@ -75,7 +63,6 @@
                     </c:forEach>
 
                 </h:form>
-
             </ui:define>
         </ui:composition>
     </h:body>

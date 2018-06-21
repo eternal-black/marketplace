@@ -12,14 +12,12 @@
     <h:body>
         <ui:composition template="template/layout.xhtml">
             <ui:define name="content">
-
                 <h:form>
 
                     <h:panelGrid style="margin: auto">
                         <h:outputLabel value="#{msg['viewOrder.label']}"/>
                     </h:panelGrid>
-                    <br/>
-                    <br/>
+                    <br/><br/>
 
                     <h:panelGrid style="margin: auto">
                         <h:commandButton value="#{msg['edit.button']}" action="editOrder" immediate="true"/>
@@ -28,19 +26,9 @@
 
                     <h:panelGrid style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
 
-                        <h:panelGrid style="margin: auto" columns="2">
-                            <h:graphicImage library="images" name="order.png"/>
-                            <h:panelGrid columns="2">
-                                <h:outputLabel value="#{msg['buyingDate.label']}"/>
-                                <h:outputLabel value="#{sessionBean.order.buyingDate}"/>
-
-                                <h:outputLabel value="#{msg['deliveryDate.label']}"/>
-                                <h:outputLabel value="#{sessionBean.order.deliveryDate}"/>
-
-                                <h:outputLabel value="#{msg['status.label']}"/>
-                                <h:outputLabel value="#{sessionBean.order.status}"/>
-                            </h:panelGrid>
-                        </h:panelGrid>
+                        <ui:include src="template/domain/orderGetter.xhtml">
+                            <ui:param name="order" value="#{sessionBean.order}"/>
+                        </ui:include>
 
                         <ui:include src="template/domain/productGetter.xhtml">
                             <ui:param name="product" value="#{sessionBean.order.product}"/>
@@ -60,7 +48,6 @@
                     </h:panelGrid>
 
                 </h:form>
-
             </ui:define>
         </ui:composition>
     </h:body>
