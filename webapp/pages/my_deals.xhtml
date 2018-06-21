@@ -24,8 +24,8 @@
                         <h:panelGrid style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
 
                             <ui:include src="template/domain/productGetter.xhtml">
-                            <ui:param name="product" value="#{product}"/>
-                        </ui:include>
+                                <ui:param name="product" value="#{product}"/>
+                            </ui:include>
 
                             <c:forEach var="order" items="#{product.orders}">
                                 <h:panelGrid style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
@@ -34,16 +34,9 @@
                                         <ui:param name="order" value="#{order}"/>
                                     </ui:include>
 
-                                    <h:panelGrid columns="2" style="margin: auto">
-                                        <h:graphicImage library="images" name="dealer.png"/>
-                                        <h:panelGrid columns="2">
-                                            <h:outputLabel value="#{msg['firstName.label']}"/>
-                                            <h:outputText value="#{order.user.firstName}"/>
-
-                                            <h:outputLabel value="#{msg['lastName.label']}"/>
-                                            <h:outputText value="#{order.user.lastName}"/>
-                                        </h:panelGrid>
-                                    </h:panelGrid>
+                                    <ui:include src="template/domain/userGetter.xhtml">
+                                        <ui:param name="user" value="#{order.user}"/>
+                                    </ui:include>
 
                                 </h:panelGrid>
                             </c:forEach>

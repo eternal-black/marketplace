@@ -12,7 +12,6 @@
     <h:body>
         <ui:composition template="template/layout.xhtml">
             <ui:define name="content">
-
                 <h:form>
 
                     <h:panelGrid style="margin: auto">
@@ -71,21 +70,13 @@
                             <ui:param name="product" value="#{sessionBean.order.product}"/>
                         </ui:include>
 
-                        <h:panelGrid columns="2" style="margin: auto">
-                            <h:graphicImage library="images" name="dealer.png"/>
-                            <h:panelGrid columns="2">
-                                <h:outputLabel value="#{msg['firstName.label']}"/>
-                                <h:outputText value="#{sessionBean.order.product.user.firstName}"/>
-
-                                <h:outputLabel value="#{msg['lastName.label']}"/>
-                                <h:outputText value="#{sessionBean.order.product.user.lastName}"/>
-                            </h:panelGrid>
-                        </h:panelGrid>
+                        <ui:include src="template/domain/userGetter.xhtml">
+                            <ui:param name="user" value="#{sessionBean.order.product.user}"/>
+                        </ui:include>
 
                     </h:panelGrid>
 
                 </h:form>
-
             </ui:define>
         </ui:composition>
     </h:body>
