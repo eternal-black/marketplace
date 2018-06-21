@@ -1,7 +1,6 @@
 package com.marketplace.bean;
 
 import com.marketplace.domain.Address;
-import com.marketplace.util.DBUtil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +16,7 @@ public class AddressBean {
     public String addAddress(){
         Address address = this.address;
         try {
-            DBUtil.addAddress(address);
+//            DBUtil.addAddress(address);
         }catch (Exception e){
             e.printStackTrace();
             return "fail";
@@ -28,7 +27,7 @@ public class AddressBean {
     public String addressById(){
         System.out.println(address.getId());
         try {
-            this.address = DBUtil.getAddressById(address.getId());
+//            this.address = DBUtil.getAddressById(address.getId());
             System.out.println(address);
         } catch (Exception e) {
             e.printStackTrace();
