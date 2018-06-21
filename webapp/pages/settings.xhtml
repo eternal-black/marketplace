@@ -18,25 +18,11 @@
                     <h:panelGrid style="margin: auto">
                         <h:outputLabel value="#{msg['settings.label']}"/>
                     </h:panelGrid>
-                    <br/>
-                    <br/>
+                    <br/><br/>
 
-                    <h:panelGrid columns="2" style="margin: auto">
-
-                        <h:outputLabel value="#{msg['login.label']}"/>
-                        <h:inputText value="#{sessionBean.currentUser.login}"/>
-
-                        <h:outputLabel value="#{msg['password.label']}"/>
-                        <h:inputText value="#{sessionBean.currentUser.password}"/>
-
-                        <h:outputLabel value="#{msg['firstName.label']}"/>
-                        <h:inputText value="#{sessionBean.currentUser.firstName}"/>
-
-                        <h:outputLabel value="#{msg['lastName.label']}"/>
-                        <h:inputText value="#{sessionBean.currentUser.lastName}"/>
-
-                    </h:panelGrid>
-                    <br/>
+                    <ui:include src="template/domain/userSetter.xhtml">
+                        <ui:param name="user" value="#{sessionBean.currentUser}"/>
+                    </ui:include>
 
                     <h:panelGrid columns="2" style="margin: auto">
                         <h:commandButton value="#{msg['deleteAccount.button']}" action="#{userBean.deleteAccount}"/>

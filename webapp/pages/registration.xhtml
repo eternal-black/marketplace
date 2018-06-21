@@ -28,25 +28,11 @@
                     <h:panelGrid style="margin: auto">
                         <h:outputLabel value="#{msg['registration.label']}"/>
                     </h:panelGrid>
-                    <br/>
-                    <br/>
+                    <br/><br/>
 
-                    <h:panelGrid columns="2" style="margin: auto">
-
-                        <h:outputLabel value="#{msg['login.label']}"/>
-                        <h:inputText id="login" value="#{sessionBean.currentUser.login}" required="true"/>
-
-                        <h:outputLabel value="#{msg['password.label']}"/>
-                        <h:inputSecret id="password" value="#{sessionBean.currentUser.password}" required="true"/>
-
-                        <h:outputLabel value="#{msg['firstName.label']}"/>
-                        <h:inputText id="firstName" value="#{sessionBean.currentUser.firstName}" required="true"/>
-
-                        <h:outputLabel value="#{msg['lastName.label']}"/>
-                        <h:inputText id="lastName" value="#{sessionBean.currentUser.lastName}" required="true"/>
-
-                    </h:panelGrid>
-                    <br/>
+                    <ui:include src="template/domain/userSetter.xhtml">
+                        <ui:param name="user" value="#{sessionBean.currentUser}"/>
+                    </ui:include>
 
                     <h:panelGrid columns="1" style="margin: auto">
                         <h:commandButton value="#{msg['registration.label']}" action="#{userBean.registration}"/>
