@@ -69,25 +69,9 @@
                             </h:panelGrid>
                         </h:panelGrid>
 
-                        <h:panelGrid style="margin: auto" columns="2">
-                            <h:graphicImage library="images" name="product.png"/>
-                            <h:panelGrid columns="2">
-                                <h:outputLabel value="#{msg['name.label']}"/>
-                                <h:outputLabel value="#{sessionBean.order.product.name}"/>
-
-                                <h:outputLabel value="#{msg['description.label']}"/>
-                                <h:outputLabel value="#{sessionBean.order.product.description}"/>
-
-                                <h:outputLabel value="#{msg['cost.label']}"/>
-                                <h:outputLabel value="#{sessionBean.order.product.cost}"/>
-
-                                <h:outputLabel value="#{msg['count.label']}"/>
-                                <h:outputLabel value="#{sessionBean.order.product.count}"/>
-
-                                <h:outputLabel value="#{msg['rating.label']}"/>
-                                <h:outputLabel value="#{sessionBean.order.product.rating}"/>
-                            </h:panelGrid>
-                        </h:panelGrid>
+                        <ui:include src="template/domain/productGetter.xhtml">
+                            <ui:param name="product" value="#{sessionBean.order.product}"/>
+                        </ui:include>
 
                         <h:panelGrid columns="2" style="margin: auto">
                             <h:graphicImage library="images" name="dealer.png"/>

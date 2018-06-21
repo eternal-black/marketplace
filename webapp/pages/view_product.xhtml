@@ -12,7 +12,6 @@
     <h:body>
         <ui:composition template="template/layout.xhtml">
             <ui:define name="content">
-
                 <h:form>
 
                     <h:panelGrid style="margin: auto">
@@ -21,35 +20,9 @@
                     <br/>
                     <br/>
 
-                    <h:panelGrid style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
-                        <h:graphicImage library="images" name="product.png"/>
-                    </h:panelGrid>
-                    <br/>
-
-                    <h:panelGrid columns="2" style="margin: auto">
-
-                        <h:outputLabel value="#{msg['name.label']}"/>
-                        <h:outputLabel value="#{sessionBean.product.name}"/>
-
-                        <h:outputLabel value="#{msg['description.label']}"/>
-                        <h:outputLabel value="#{sessionBean.product.description}"/>
-
-                        <h:outputLabel value="#{msg['cost.label']}"/>
-                        <h:outputLabel value="#{sessionBean.product.cost}"/>
-
-                        <h:outputLabel value="#{msg['discount.label']}"/>
-                        <h:outputLabel value="#{sessionBean.product.discount}"/>
-
-                        <h:outputLabel value="#{msg['count.label']}"/>
-                        <h:outputLabel value="#{sessionBean.product.count}"/>
-
-                        <h:outputLabel value="#{msg['rating.label']}"/>
-                        <h:outputLabel value="#{sessionBean.product.rating}"/>
-
-                        <h:outputLabel value="#{msg['productStatus.label']}"/>
-                        <h:outputLabel value="#{sessionBean.product.status}"/>
-
-                    </h:panelGrid>
+                    <ui:include src="template/domain/productGetter.xhtml">
+                        <ui:param name="product" value="#{sessionBean.product}"/>
+                    </ui:include>
                     <br/>
 
                     <h:panelGrid columns="2" style="margin: auto;">
@@ -58,7 +31,6 @@
                     </h:panelGrid>
 
                 </h:form>
-
             </ui:define>
         </ui:composition>
     </h:body>

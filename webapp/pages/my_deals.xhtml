@@ -25,25 +25,9 @@
                     <c:forEach var="product" items="#{productBean.userProducts}">
                         <h:panelGrid style="margin: auto;border-style: solid;border-width: 1px;border-color: black;">
 
-                            <h:panelGrid style="margin: auto" columns="2">
-                                <h:graphicImage library="images" name="product.png"/>
-                                <h:panelGrid columns="2">
-                                    <h:outputLabel value="#{msg['name.label']}"/>
-                                    <h:outputLabel value="#{product.name}"/>
-
-                                    <h:outputLabel value="#{msg['description.label']}"/>
-                                    <h:outputLabel value="#{product.description}"/>
-
-                                    <h:outputLabel value="#{msg['cost.label']}"/>
-                                    <h:outputLabel value="#{product.cost}"/>
-
-                                    <h:outputLabel value="#{msg['count.label']}"/>
-                                    <h:outputLabel value="#{product.count}"/>
-
-                                    <h:outputLabel value="#{msg['rating.label']}"/>
-                                    <h:outputLabel value="#{product.rating}"/>
-                                </h:panelGrid>
-                            </h:panelGrid>
+                            <ui:include src="template/domain/productGetter.xhtml">
+                                <ui:param name="product" value="#{product}"/>
+                            </ui:include>
 
                             <c:forEach var="order" items="#{product.orders}">
 
