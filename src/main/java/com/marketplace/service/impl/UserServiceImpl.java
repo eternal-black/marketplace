@@ -4,6 +4,7 @@ import com.marketplace.dao.UserDAO;
 import com.marketplace.dao.impl.UserDAOImpl;
 import com.marketplace.domain.User;
 import com.marketplace.service.UserService;
+import com.marketplace.util.CommonUtil;
 
 public class UserServiceImpl implements UserService {
 
@@ -15,6 +16,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void add(User user) throws Exception {
+        user.setPhoto(CommonUtil.generateAvatarNumber());
         userDAO.add(user);
     }
 
