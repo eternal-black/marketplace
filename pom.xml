@@ -31,7 +31,7 @@
         <lombok>1.16.22</lombok>
         <primefaces>6.2</primefaces>
         <slf4j>1.7.25</slf4j>
-        <h2database>1.4.197</h2database>
+        <h2database>2.1.210</h2database>
     </properties>
 
     <dependencies>
